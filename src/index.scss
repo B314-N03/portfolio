@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+body {
+  margin: 0;
+  font-family: "Inconsolata",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+  --bg-color-main: #121212;
+  --bg-color-secondary: #284b63;
+  --bg-color-tertiary: #3c6e71;
+  --text-color-main: #fff;
+  --text-color-secondary: #bebaba;
+}
+
+:root{
+  --font-size-main: 1.2rem;
+  --font-size-secondary: 1.1rem;
+  --font-size-tertiary: 1rem;
+  --font-size-quaternary: .9rem;  
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 730px) {
+  :root{
+    --font-size-main: 1.1rem;
+    --font-size-secondary: 1.1rem;
+    --font-size-tertiary: 1rem;
+    --font-size-quaternary: .9rem;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  :root{
+    --font-size-main: 1.4rem;
+    --font-size-secondary: 1.3rem;
+    --font-size-tertiary: 1.2rem;
+    --font-size-quaternary: 1.1rem;
+  }
+}
+
+
+
+// Start of General Classes 
+
+.visible-on-{ 
+  &desktop, &mobile, &tablet{ 
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+.hidden-on-{
+  &desktop, &mobile, &tablet{ 
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+
+// MOBILE
+@media only screen and (max-width:360px){
+  .visible-on-mobile{ 
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media only screen and (max-width:768px){
+  .visible-on-tablet{ 
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media only screen and (min-width:769px){
+  .visible-on-desktop{ 
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+
+.h{
+  &1{
+    font-size: 3rem;
+  }
+
+  &2{
+    font-size: 2rem;
+  }
+
+  &3{
+    font-size: 1.6rem;
+  }
+
+  &4{
+    font-size: 1.2rem;
+  }
+
+  &5{
+    font-size: 1rem;
+  }
+}
+
+.fs-{
+  &1{
+    font-size: var(--font-size-main) !important;
+  }
+
+  &2{
+    font-size: var(--font-size-secondary) !important;
+  }
+
+  &3{
+    font-size: var(--font-size-tertiary) !important;
+  }
+
+  &4{
+    font-size: var(--font-size-quaternary) !important;
+  }
+}
+
+
+.underline{
+  text-decoration: underline;
+}
+
+
+.d-{
+  &flex{ 
+    display: flex !important;
+  }
+  &none{ 
+    display: none !important;
+  }
+}
+
+.flex-{
+  &column{ 
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  &row{ 
+    display: flex !important;
+    flex-direction: row !important;
+  }
+}
+
+.text-color-{
+  &main{
+    color: var(--text-color-main) !important;
+  }
+
+  &secondary{
+    color: var(--text-color-secondary) !important;
+  }
+
+  &tertiary{
+    color: var(--text-color-tertiary) !important;
+  }
+
+  &quaternary{
+    color: var(--text-color-quaternary) !important;
+  }
+}
+
+.justify-{
+  &between{ 
+    justify-content: space-between !important;
+  }
+
+  &around{ 
+    justify-content: space-around !important;
+  }
+
+  &center{ 
+    justify-content: center !important;
+  }
+}
+
+.align-{
+  &center{ 
+    align-items: center !important;
+  }
+
+  &start{ 
+    align-items: flex-start !important;
+  }
+
+  &end{
+    align-items: flex-end !important;
+  }
+}
+
+.flex-{
+  &-wrap{ 
+    flex-wrap: wrap !important;
+  }
+}
+
+.flex-gap-{
+  &1rem{ 
+    gap: 1rem !important;
+  }
+
+  &2rem{ 
+    gap: 2rem !important;
+  }
+
+  &3rem{ 
+    gap: 3rem !important;
+  }
+
+  &10p{ 
+    gap: 10px !important;
+  }
+
+  &20p{ 
+    gap: 20px !important;
+  }
+}
+
+.opacity{
+  &-0{ 
+    opacity: 0 !important;
+  }
+  &-8{ 
+    opacity: 0.8 !important;
+  }
+}
+
+.cursor{
+  &-pointer{ 
+    cursor: pointer !important;
+  }
+
+  &-unset{ 
+    cursor: unset !important;
+  }
+
+  &-default{ 
+    cursor: default !important;
+  }
+
+  &-not-allowed{
+    cursor: not-allowed !important;
+  }
+
+  &-zoom-in{
+    cursor: zoom-in !important;
+  }
+}
+
+.w-{
+  &100{ 
+    width: 100% !important;
+  }  
+  &75{
+    width: 75% !important;
+  }
+
+  &50{ 
+    width: 50% !important;
+  }
+
+  &25{ 
+    width: 25% !important;
+  }
+
+  &90p{
+    width: 90px !important;
+  }
+
+  &140p{
+    width: 140px !important;
+  }
+
+  &fit-content{
+    width: fit-content !important;
+  }
+}
+
+
+.h-{
+  &100{ 
+    height: 100% !important;
+  }  
+  &75{
+    height: 75% !important;
+  }
+
+  &50{ 
+    height: 50% !important;
+  }
+
+  &25{ 
+    height: 25% !important;
+  }
+}
+
+
+.m{
+  &-0{ 
+    margin: 0 !important;
+  }
+
+  &-10{ 
+    margin: 10px !important;
+  }
+
+  &-20{ 
+    margin: 20px !important;
+  }
+
+  &-30{ 
+    margin: 30px !important;
+  }
+  
+  &b-{
+
+    &10{ 
+      margin-bottom: 10px !important;
+    }
+
+    &20{ 
+      margin-bottom: 20px !important;
+    }
+
+    &30{ 
+      margin-bottom: 30px !important;
+    }
+  }
+
+  &t-{
+    &10{ 
+      margin-top: 10px !important;
+    }
+
+    &20{ 
+      margin-top: 20px !important;
+    }
+
+    &30{ 
+      margin-top: 30px !important;
+    }
+  }
+
+  &r-{
+    &10{ 
+      margin-right: 10px !important;
+    }
+
+    &20{ 
+      margin-right: 20px !important;
+    }
+
+    &30{ 
+      margin-right: 30px !important;
+    }
+  }
+
+  &l-{
+    &10{ 
+      margin-left: 10px !important;
+    }
+
+    &20{ 
+      margin-left: 20px !important;
+    }
+
+    &30{  
+      margin-left: 30px !important;
+    }
+  }
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+.mb-auto {
+  margin-bottom: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.text-align-{
+  &left {
+    text-align: left !important;
+  }
+  &center {
+    text-align: center !important;
+  }
+  &right {
+    text-align: right !important;
+  }
+  &justify {
+    text-align: justify !important;
+  }
+}
+
+.font-weight-{
+  &light {
+    font-weight: 300 !important;
+  }
+  &normal {
+    font-weight: 400 !important;
+  }
+  &bold {
+    font-weight: 700 !important;
+  }
+}
+
+.font-size-{
+  &small {
+    font-size: 0.875rem !important;
+  }
+  &medium {
+    font-size: 1rem !important;
+  }
+  &large {
+    font-size: 1.25rem !important;
+  }
+}
+
+.bg-color-{
+  &main {
+    background-color: var(--bg-color-main) !important;
+  }
+  &secondary {
+    background-color: var(--bg-color-secondary) !important;
+  }
+  &tertiary {
+    background-color: var(--bg-color-tertiary) !important;
+  }
+}
+
+.border-radius-{
+  &none {
+    border-radius: 0 !important;
+  }
+  &small {
+    border-radius: 5px !important;
+  }
+  &medium {
+    border-radius: 10px !important;
+  }
+  &large {
+    border-radius: 20px !important;
+  }
+}
+
+.padding-{
+  &0 {
+    padding: 0 !important;
+  }
+  &10 {
+    padding: 10px !important;
+  }
+  &20 {
+    padding: 20px !important;
+  }
+  &30 {
+    padding: 30px !important;
+  }
+
+  &t-10 {
+    padding-top: 10px !important;
+  }
+  &b-10 {
+    padding-bottom: 10px !important;
+  }
+  &l-10 {
+    padding-left: 10px !important;
+  }
+  &r-10 {
+    padding-right: 10px !important;
+  }
+}
+
+// Dynamic Class Generators
+@mixin size-dynamic($prefix, $property) {
+  @each $size in (10, 20, 30, 40, 50, 75, 100) {
+    .#{$prefix}-#{$size}p {
+      #{$property}: #{$size}px !important;
+    }
+    .#{$prefix}-#{$size}vh {
+      #{$property}: #{$size}vh !important;
+    }
+    .#{$prefix}-#{$size}pct {
+      #{$property}: #{"#{$size}%"} !important;
+    }
+  }
+
+  @for $i from 1 through 500 {
+    .#{$prefix}-#{$i}p {
+      #{$property}: #{$i}px !important;
+    }
+    .#{$prefix}-#{$i}vh {
+      #{$property}: #{$i}vh !important;
+    }
+    .#{$prefix}-#{$i}pct {
+      #{$property}: #{"#{$i}%"} !important;
+    }
+  }
+}
+@include size-dynamic("w", "width");
+@include size-dynamic("h", "height");
+@include size-dynamic("m", "margin");
+@include size-dynamic("p", "padding");
+
+.animate__{
+  &fadeIn{ 
+    animation-duration: .5s ;
+    animation-name: fadeIn !important;
+  }
+  &fadeOut{ 
+    animation-duration: 1s ;
+    animation-name: fadeOut !important;
+  }
+  &fadeInOpacity-8{ 
+    animation-duration: .5s ;
+    animation-name: fadeInOpacity-8 !important;
+  }
+}
+
+@keyframes fadeIn  {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut  {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOpacity-8  {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .8;
+  }
+}
+
+.content{
+  width: calc(100% - 50px);
+  min-height: calc(100vh - 110px);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--bg-color-main);
+}
+
+.breadcrumb{
+  color: var(--text-color-secondary);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+
+
+.no-text-decoration{
+  text-decoration: none !important;
+}
+
+
+// End of General Classes
