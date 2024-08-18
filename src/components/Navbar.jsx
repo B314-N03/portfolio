@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './scss/navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faSquareGithub, faSquareInstagram, faXingSquare } from '@fortawesome/free-brands-svg-icons'
 import { Link, NavLink } from 'react-router-dom'
-import {  faChevronDown, faChevronLeft,  } from '@fortawesome/free-solid-svg-icons'
+import {  faChevronDown, faChevronLeft, faSun, faMoon, faRightFromBracket, faLeftFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { ThemeContext } from './providers/ThemeProvider'
 
-function Navbar() {
+function Navbar({showLoginModal,setShowLoginModal}) {
   const [time, setTime] = useState(new Date().toLocaleTimeString())
   const [today] = useState(new Date().toLocaleDateString("de-DE", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))
   const [menuOpen, setMenuOpen] = useState(false)
   const menuMobileRef = useRef(null)
   const [sonstigesOpen, setSonstigesOpen] = useState(false)
   const [dateTimeCurrentState, setDateTimeCurrentState] = useState(1)
+  const { theme, setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     let interval = null;
@@ -111,6 +113,24 @@ function Navbar() {
     setDateTimeCurrentState(dateTimeCurrentState === 0 ? 1 : 0)
   }
 
+  const handleChangeTheme = () => {
+    if(theme === 'dark'){
+      setTheme('light')
+    }
+    else{
+      setTheme('dark')
+    }
+  }
+
+  const handleShowLogin = (e) => {
+    if(showLoginModal){
+      setShowLoginModal(false)
+    }
+    else{
+      setShowLoginModal(true)
+    }
+  }
+
   return (
     <nav className='navbar'>
       <div className="navbar-parent firstItem">
@@ -152,15 +172,11 @@ function Navbar() {
         </NavLink>
       </div>
       <div className="navbar-parent flex-gap-1rem">
-        <a href='https://instagram.com/bela.fn' target='_blank' rel="noreferrer" className='navbar-item'>
-          <FontAwesomeIcon className='navbar-item navbar-icon' icon={faSquareInstagram}></FontAwesomeIcon>
-        </a>
-        <a href='https://github.com/B314-N03' target='_blank' rel="noreferrer" className='navbar-item'>
-          <FontAwesomeIcon className='navbar-item navbar-icon' icon={faSquareGithub}></FontAwesomeIcon>
-        </a>
-        <a href='https://www.xing.com/profile/Bela_Noe2' target='_blank' rel="noreferrer" className='navbar-item'>
-          <FontAwesomeIcon className='navbar-item navbar-icon' icon={faXingSquare}></FontAwesomeIcon>
-        </a>
+        <div className="flex-row align-center flex-gap-1rem cursor-pointer" onClick={handleShowLogin} id='login-button'>
+          <label for="login-icon" className='cursor-pointer'>{showLoginModal ? "Logout" : "Login" }</label> 
+          <FontAwesomeIcon name='login-icon'  className={`navbar-item navbar-icon cursor-pointer ${showLoginModal ? "" : "navbar-login-icon"}`} icon={faRightFromBracket} data-not-hoverable data-no-transition></FontAwesomeIcon>
+        </div>
+          <FontAwesomeIcon onClick={handleChangeTheme} className="circle navbar-item navbar-icon" icon={theme === 'dark' ? faSun : faMoon }></FontAwesomeIcon>
       </div>
     </nav>
   )

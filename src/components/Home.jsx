@@ -14,7 +14,7 @@ function Home() {
       <div className="home-profileCard-container">
         <div className="home-profileCard">
 
-        <div className='h1 text-color-main p-35p'>Hallo, ich bin Béla Noé.<br/></div>
+        <div className='h1 p-35p'>Hallo, ich bin Béla Noé.<br/></div>
         </div>
 
       </div>

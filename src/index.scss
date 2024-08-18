@@ -9,12 +9,88 @@ body {
 }
 
 :root{
+
+}
+
+
+/*colors*/
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark: #090909;
+  --darkgrey: #222222;
+  --grey: #4b4b4b;
+  --lightgrey: #9b9b9b;
+  --light: #e6e6e6;
+  --blue: #0d6efd;
+  --red: #f20000;
+  --green: #4ab022;
+  --orange: #faab17;
+  --purple: #8b44fd;
+  --yellow: #fdfd44;
+
+
+  --lightMode2: #f4f4f4;
+  --lightMode3: #dddddd;
+  --lightMode4: #dfdfdf;
+  --lightMode5: #959595;
+  --lightMode6: #717171;
+  --lightMode7: #373737;
+}
+
+.light-theme{
+  --buttonBgMain: var(--blue);
+  --buttonCoMain: var(--white);
+  --textMain: var(--black);
+  --textSecondary: var(--lightgrey);
+  --textThird: var(--white);
+  --textFourth: var(--light);
+  --bg-color-main: var(--white);
+  --bg-color-secondary: #284b63;
+  --bg-color-tertiary: #3c6e71;
+  --text-color-main: #000000;
+  --text-color-secondary: #5b5959;
+  --bg1: var(--white);
+  --bg2: var(--lightMode2);
+  --bg3: var(--lightMode3);
+  --bg4: var(--lightMode4);
+  --bg5: var(--lightMode5);
+  --bg6: var(--lightMode6);
+  --bg7: var(--lightMode7);
+  --bgBlue: var(--blue);
+  --bgRed: var(--red);
+  --bgOrange: var(--orange);
+  --bgGreen: var(--green);
+  --bgPurple: var(--purple);
+}
+
+.dark-theme {
   --bg-color-main: #121212;
   --bg-color-secondary: #284b63;
   --bg-color-tertiary: #3c6e71;
   --text-color-main: #fff;
   --text-color-secondary: #bebaba;
+  --buttonBgMain: var(--blue);
+  --buttonCoMain: var(--white);
+  --textMain: var(--white);
+  --textSecondary: var(--lightgrey);
+  --textThird: var(--black);
+  --textFourth: var(--dark);
+  --bg1: var(--black);
+  --bg2: var(--dark);
+  --bg3: var(--darkgrey);
+  --bg4: var(--grey);
+  --bg5: var(--lightgrey);
+  --bg6: var(--light);
+  --bg7: var(--white);
+  --bgBlue: var(--blue);
+  --bgRed: var(--red);
+  --bgOrange: var(--orange);
+  --bgGreen: var(--green);
+  --bgPurple: var(--purple);
 }
+
+
 
 :root{
   --font-size-main: 1.2rem;
@@ -169,6 +245,13 @@ body {
   &quaternary{
     color: var(--text-color-quaternary) !important;
   }
+}
+
+
+.circle{
+  border-radius:50%;
+  background-color: var(--bg-color-tertiary);
+  padding: 10px;
 }
 
 .justify-{

@@ -6,9 +6,10 @@
             justify-content: center;
             align-items: center;
         }
+        color: var(--white);
         min-width: 250px;
-        max-width: 600px;
-        height: 50vh;
+        width: 1200px;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         background-color: var(--bg-color-tertiary);
