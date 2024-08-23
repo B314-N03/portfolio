@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+functions/*
+firestore*
+firebase-debug*
 # production
 /build
 
