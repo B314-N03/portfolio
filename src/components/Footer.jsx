@@ -50,7 +50,7 @@ function Footer() {
         </div>
 
         <div className="mt-20 h4 text-align-center w-100">
-            <div>© 2024 Bela Noe</div>
+            <div>© {new Date().getFullYear()} Béla Noé</div>
             <div>All rights reserved</div>
         </div>
 
