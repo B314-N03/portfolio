@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './scss/navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faSquareGithub, faSquareInstagram, faXingSquare } from '@fortawesome/free-brands-svg-icons'
 import { Link, NavLink } from 'react-router-dom'
-import {  faChevronDown, faChevronLeft, faSun, faMoon, faRightFromBracket, faLeftFromBracket } from '@fortawesome/free-solid-svg-icons'
+import {  faChevronDown, faChevronLeft, faSun, faMoon, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from './providers/ThemeProvider'
 
 function Navbar({showLoginModal,setShowLoginModal}) {
@@ -176,7 +175,12 @@ function Navbar({showLoginModal,setShowLoginModal}) {
           <label for="login-icon" className='cursor-pointer'>{showLoginModal ? "Logout" : "Login" }</label> 
           <FontAwesomeIcon name='login-icon'  className={`navbar-item navbar-icon cursor-pointer ${showLoginModal ? "" : "navbar-login-icon"}`} icon={faRightFromBracket} data-not-hoverable data-no-transition></FontAwesomeIcon>
         </div>
-          <FontAwesomeIcon onClick={handleChangeTheme} className="circle navbar-item navbar-icon" icon={theme === 'dark' ? faSun : faMoon }></FontAwesomeIcon>
+          <FontAwesomeIcon 
+            onClick={handleChangeTheme} 
+            className="circle w-20p h-20p navbar-item navbar-icon"
+            icon={theme === 'dark' ? faSun : faMoon }
+            data-not-hoverable  
+          ></FontAwesomeIcon>
       </div>
     </nav>
   )
