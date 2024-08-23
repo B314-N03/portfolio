@@ -12,6 +12,13 @@ body {
 
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
 
 /*colors*/
 :root {
@@ -164,23 +171,23 @@ body {
 
 .h{
   &1{
-    font-size: 3rem;
+    font-size: 3rem !important;
   }
 
   &2{
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 
   &3{
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
 
   &4{
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
   }
 
   &5{
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
 }
 
@@ -229,6 +236,27 @@ body {
   }
 }
 
+
+.visibility-{
+  &hidden{
+    visibility: hidden !important;
+  }
+
+  &visible{
+    visibility: visible !important;
+  }
+}
+
+.backface-{
+  &hidden{
+    backface-visibility: hidden !important;
+  }
+
+  &visible{
+    backface-visibility: visible !important;
+  }
+}
+
 .text-color-{
   &main{
     color: var(--text-color-main) !important;
@@ -244,6 +272,22 @@ body {
 
   &quaternary{
     color: var(--text-color-quaternary) !important;
+  }
+
+  &black{
+    color: var(--black) !important;
+  }
+
+  &white{
+    color: var(--white) !important;
+  }
+
+  &red{
+    color: var(--red) !important;
+  }
+
+  &green{
+    color: var(--green) !important;
   }
 }
 
@@ -508,6 +552,20 @@ body {
 }
 
 .font-size-{
+
+  &main {
+    font-size: var(--font-size-main) !important;
+  }
+
+  &secondary {
+    font-size: var(--font-size-secondary) !important;
+  }
+
+  &tertiary {
+    font-size: var(--font-size-tertiary) !important;
+  }
+
+
   &small {
     font-size: 0.875rem !important;
   }
@@ -528,6 +586,15 @@ body {
   }
   &tertiary {
     background-color: var(--bg-color-tertiary) !important;
+  }
+  &yellow {
+    background-color: var(--yellow) !important;
+  }
+  &red {
+    background-color: var(--red) !important;
+  }
+  &green {
+    background-color: var(--green) !important;
   }
 }
 
@@ -600,11 +667,42 @@ body {
     }
   }
 }
+
+@mixin size-dynamic-range($prefix, $property) {
+  @each $size in (10, 20, 30, 40, 50, 75, 100) {
+    .#{$prefix}-#{$size}p {
+      #{$property}: #{$size}px !important;
+    }
+    .#{$prefix}-#{$size}vh {
+      #{$property}: #{$size}vh !important;
+    }
+    .#{$prefix}-#{$size}pct {
+      #{$property}: #{"#{$size}%"} !important;
+    }
+  }
+
+  @for $i from 1 through 500 {
+    .#{$prefix}-#{$i}p {
+      #{$property}: #{$i}px !important;
+    }
+    .#{$prefix}-#{$i}vh {
+      #{$property}: #{$i}vh !important;
+    }
+    .#{$prefix}-#{$i}pct {
+      #{$property}: #{"#{$i}%"} !important;
+    }
+  }
+}
+// Include the mixins with different prefixes and properties
 @include size-dynamic("w", "width");
 @include size-dynamic("h", "height");
 @include size-dynamic("m", "margin");
 @include size-dynamic("p", "padding");
 
+@include size-dynamic-range("min-w", "min-width");
+@include size-dynamic-range("max-w", "max-width");
+@include size-dynamic-range("min-h", "min-height");
+@include size-dynamic-range("max-h", "max-height");
 .animate__{
   &fadeIn{ 
     animation-duration: .5s ;
