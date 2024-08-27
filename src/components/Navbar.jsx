@@ -171,10 +171,10 @@ function Navbar({showLoginModal,setShowLoginModal}) {
         </NavLink>
       </div>
       <div className="navbar-parent flex-gap-1rem">
-        <div className="flex-row align-center flex-gap-1rem cursor-pointer" onClick={handleShowLogin} id='login-button'>
+        {/* <div className="flex-row align-center flex-gap-1rem cursor-pointer" onClick={handleShowLogin} id='login-button'>
           <label for="login-icon" className='cursor-pointer'>{showLoginModal ? "Logout" : "Login" }</label> 
           <FontAwesomeIcon name='login-icon'  className={`navbar-item navbar-icon cursor-pointer ${showLoginModal ? "" : "navbar-login-icon"}`} icon={faRightFromBracket} data-not-hoverable data-no-transition></FontAwesomeIcon>
-        </div>
+        </div> */}
           <FontAwesomeIcon 
             onClick={handleChangeTheme} 
             className="circle w-20p h-20p navbar-item navbar-icon"

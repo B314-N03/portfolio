@@ -110,7 +110,7 @@
             }
             &:hover {
                 width: 1200px;
-                & > .home-profileCard-back > .home-profileCard-body > .home-profileCard-right {
+                & >  .home-profileCard-body > .home-profileCard-right {
                     animation: fadeIn .5s linear;
                     visibility: visible;
             }
@@ -121,6 +121,12 @@
     }
     }
 
+}
+
+#terminal-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
 }
 
 .terminal-header-icon {
