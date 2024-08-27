@@ -54,6 +54,7 @@ function App() {
         <Footer></Footer>
         <LoginModal modalOpen={showLoginModal} setModalOpen={setShowLoginModal}></LoginModal>
       </Router>
+      
     </ThemeProvider>
 
   );
