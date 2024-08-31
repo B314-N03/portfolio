@@ -215,6 +215,13 @@ video::-webkit-media-controls-enclosure {
 }
 
 
+.seperator-vertical{
+  transform: rotate(90deg);
+  border: 1px solid var(--bg-color-secondary);
+  opacity: .6;
+}
+
+
 .d-{
   &flex{ 
     display: flex !important;

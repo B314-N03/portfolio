@@ -139,10 +139,23 @@ function Navbar({showLoginModal,setShowLoginModal}) {
           <span className="menu-toggle-bar menu-toggle-bar--bottom"></span>
         </div>
       <div className="navbar-menu4mobile" ref={menuMobileRef} >
+        <div className="flex-column flex-gap-1rem ">
           <Link to='/' className="navbar-item">Home</Link>
           <Link to='/about' className="navbar-item">Über mich</Link>
           <Link to='/projects' className="navbar-item">Projekte</Link>
           <Link to='/contact' className="navbar-item">Kontakt</Link>
+        </div>
+
+        <div className="seperator-vertical w-100p"></div>
+
+        <div className="flex-column flex-gap-1rem ">
+          <Link to="/other" className='navbar-item'>Sonsties</Link>
+          <Link to="/other/side-projects" className='navbar-item'>Nebenprojekte</Link>
+          <Link to="/other/cv" className='navbar-item'>Lebenslauf</Link>
+          <Link to="/other/impressum" className='navbar-item'>Impressum</Link>
+
+        </div>
+
         </div>
         <div className="navbar-item" data-no-animation>Béla Noé</div>
         <div className='cursor-pointer navbar-time w-fit-content' onClick={handleClickDateTimeMenu}>
