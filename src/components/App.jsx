@@ -13,6 +13,7 @@ import SideProjects from './SideProjects';
 import ThemeProvider from './providers/ThemeProvider';
 import LoginModal from './LoginModal';
 import { useState } from 'react';
+import ComingSoon from './ComingSoon';
 
 function App() {
   const [showLoginModal,setShowLoginModal] = useState(false)
@@ -22,12 +23,30 @@ function App() {
         <Navbar showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></Navbar>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/projects" element={<Projects/>} />
-          <Route path='/other' element={<Other/>}/>
-          <Route path='/other/side-projects' element={<SideProjects/>}></Route>
-          <Route path='/other/cv' element={<CV/>}></Route>
+          <Route path="/about" element={
+          <ComingSoon></ComingSoon>
+          // <About/>
+          }/>
+          <Route path="/contact" element={
+            <ComingSoon></ComingSoon>
+            // <Contact/>
+            } />
+          <Route path="/projects" element={
+            <ComingSoon></ComingSoon>
+            // <Projects/>
+            } />
+          <Route path='/other' element={
+            <ComingSoon></ComingSoon>
+            // <Other/>
+            }/>
+          <Route path='/other/side-projects' element={
+            <ComingSoon></ComingSoon>
+            // <SideProjects/>
+            }></Route>
+          <Route path='/other/cv' element={
+            <ComingSoon></ComingSoon>
+            // <CV/>
+            }></Route>
           <Route path='/other/impressum' element={<Impressum/>}></Route>
           {/* <Route path="/login" element={<Login/>} /> */}
           <Route path="*" element={<NotFound/>} />
@@ -35,6 +54,7 @@ function App() {
         <Footer></Footer>
         <LoginModal modalOpen={showLoginModal} setModalOpen={setShowLoginModal}></LoginModal>
       </Router>
+      
     </ThemeProvider>
 
   );

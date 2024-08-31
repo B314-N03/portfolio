@@ -5,12 +5,28 @@ on:
     branches:
       - master
 
+
 jobs:
-  deploy_live_website:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.10.0'
+
+      - name: Install dependencies
+        run: npm install 
+        env:
+          CI: false
+
+      - name: Build
+        run: npm run build
+        env:
+          CI: false
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIOWEBSITE_E6B8E }}"
