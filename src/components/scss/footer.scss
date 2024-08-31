@@ -34,10 +34,8 @@
 
 
     &-social-media-label {
-        opacity: 0;
-        visibility: hidden;
-        width: 0;
-        height: 0;
+        opacity: 1;
+        visibility: visible;
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
@@ -94,6 +92,13 @@
     }
 
     @media only screen and (min-width:540px) {
+        &-social-media-label{
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
         &-menu-conatiner{
             flex-direction: row;
             height:  167px;
