@@ -646,6 +646,19 @@ video::-webkit-media-controls-enclosure {
   &r-10 {
     padding-right: 10px !important;
   }
+
+  &t-20 {
+    padding-top: 20px !important;
+  }
+  &b-20 {
+    padding-bottom: 20px !important;
+  }
+  &l-20 {
+    padding-left: 20px !important;
+  }
+  &r-20 {
+    padding-right: 20px !important;
+  }
 }
 
 // Dynamic Class Generators
