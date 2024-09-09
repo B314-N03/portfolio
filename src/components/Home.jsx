@@ -3,11 +3,21 @@ import Breadcrumb from './Breadcrumb';
 import './scss/home.scss';
 import backgroundVideo from '../assets/videos/Background_video.mp4';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose, faCode, faMinus, faPlus, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faMinus, faPlus, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
+import {  faGithub, faNodeJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
+import firebaseSVG from '../assets/images/firebase-icon.svg'
+import vitestSVG from '../assets/images/logos--vitest.svg'
+import flutterSVG from "../assets/images/flutterio-icon.svg"
+import javaSVG from "../assets/images/java-icon.svg"
+import typescriptSVG from "../assets/images/typescriptlang-icon.svg"
+import bashSVG from "../assets/images/gnu_bash-icon.svg"
+import pythonSVG from "../assets/images/python.svg"
 
 function Home() {
   const [cardFlipped, setCardFlipped] = useState(false);
   const [terminalLines, setTerminalLines] = useState([{ command: '', output: '' }]);
+  
+  // For the Navbar date Element
   const month = new Date().getMonth();
   const day = new Date().getDate();
   const monthsMap = {
@@ -24,6 +34,23 @@ function Home() {
     10: "Nov",
     11: "Dec"
   }
+  // Set the birthdate to 13th June 2003
+  const birthdate = new Date(2003, 5, 13);  // Note: Months are 0-indexed in JavaScript (0 = January, 5 = June)
+
+  // Get today's date
+  const today = new Date();
+
+  // Calculate the difference in years
+  let age = today.getFullYear() - birthdate.getFullYear();
+
+  // Adjust if the birthday hasn't occurred yet this year
+  const monthDifference = today.getMonth() - birthdate.getMonth();
+  const dayDifference = today.getDate() - birthdate.getDate();
+
+  if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+      age--;
+  }  
+  const ageOfMe = age
 
 
   useEffect(() => {
@@ -109,15 +136,66 @@ function Home() {
     document.getElementById(id).style.opacity = '0';
   };
 
-  const handleCardFlip = () => {
-    document.getElementsByClassName("home-profileCard")[0].classList.toggle("flipped");
-    setTimeout(() => {
-      setCardFlipped(!cardFlipped);
-    }, 270);
-  };
+  const techStack = {
+    "react_js":{
+      name:"React.js",
+      icon:faReact,
+      iconClassName:"text-color-blue"
+    },
+    "node_js":{
+      name:"Node.js",
+      icon:faNodeJs,
+      iconClassName:"text-color-green"
+    },
+    "firebase": {
+      name:"Firebase",
+      svg: true,
+      svgPath: firebaseSVG
+    },
+    "github": {
+      name:"GitHub",
+      icon:faGithub,
+    },
+    "vitest": {
+      name:"Vitest",
+      svg:true,
+      svgPath: vitestSVG
+    },
+    "sass":{
+      name:"Sass",
+      icon:faSass,
+      iconClassName:"text-color-sass"
+    },
+    "flutter": {
+      name:"Flutter",
+      svg: true,
+      svgPath:flutterSVG
+    },
+    "typescript": {
+      name:"TypeScript",
+      svg: true,
+      svgPath: typescriptSVG
+    },
+    "bash":{
+      name:"Bash",
+      svg:true,
+      svgPath: bashSVG
+    },
+    "python": {
+      name:"Python",
+      svg:true,
+      svgPath: pythonSVG
+    },
+    "java": {
+      name:"Java",
+      svg: true,
+      svgPath: javaSVG
+    },
+
+  }
 
   return (
-    <div className='content'>
+    <div className='content bg-video-home'>
       <video autoPlay muted playsInline loop unselectable='true' disablePictureInPicture id="myVideo" className='home-video' src={backgroundVideo}></video>
       <Breadcrumb name="Home" />
       <div className="home-profileCard-container min-height-60vh">
@@ -166,7 +244,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="home-profileCard-right w-100 p-35p flex-column flex-gap-10p">
+              <div className="home-profileCard-right p-35p flex-column flex-gap-10p">
                 <div className="w-100 justify-center align-center flex-row">
                   <div className="circle w-100p h-100p flex-column justify-center align-center">
                     <FontAwesomeIcon icon={faUser} size='2x' className="text-color-white"></FontAwesomeIcon>
@@ -174,21 +252,46 @@ function Home() {
                 </div>
 
                 <div className="w-100 padding-t-20 justify-center align-center flex-row">
-                  <div className=" flex-column justify-center  flex-gap-1rem">
+                  <div className=" flex-column justify-center  flex-gap-1rem h3">
                     <span>
-                      Name : Béla 
+                      Name : Béla Noé
                     </span>
                     <span>
-                      Alter : 21
+                      Alter : {ageOfMe}
                     </span>
                     <span>
                       Beruf : Softwareentwickler
                     </span>
                     <span>
-                      Sprachen : Englisch, Deutsch
+                      Sprachen : Englisch, Deutsch  
                     </span>
                     <span>
-                      Aktuelles Projekt : ELGIO 
+                      Aktuellestes Projekt : ELGIO 
+                    </span>
+                    <span>
+                      Aktueller Techstack : 
+                      <div className="flex-row techstack-container">
+                          { 
+                          Object.keys(techStack).map((entry) => {
+                            if(techStack[entry].svg){
+                              return(
+                                <div className="techstack-child-container" key={entry}>
+                                  <img src={techStack[entry].svgPath} alt={techStack[entry].name} className={`techstack-child-icon${techStack[entry].svgClassName !== undefined ? " " + techStack[entry].svgClassName : ''}`}></img>
+                                  <span className='techstack-child-name'>{techStack[entry].name}</span>
+                                </div>
+                              )
+                            }
+                            else{
+                              return(
+                                <div className="techstack-child-container" key={entry}>
+                                  <FontAwesomeIcon icon={techStack[entry].icon} className={`techstack-child-icon${techStack[entry].iconClassName !== undefined ? " " + techStack[entry].iconClassName : ''}`}></FontAwesomeIcon>
+                                  <span className='techstack-child-name'>{techStack[entry].name}</span>
+                                </div>
+                              )
+                            }
+                          })
+                          }
+                      </div>
                     </span>
                   </div>
                 </div>

@@ -171,7 +171,7 @@ video::-webkit-media-controls-enclosure {
 
 .h{
   &1{
-    font-size: 3rem !important;
+    font-size: 2rem !important;
   }
 
   &2{
@@ -188,6 +188,31 @@ video::-webkit-media-controls-enclosure {
 
   &5{
     font-size: 1rem !important;
+  }
+}
+
+
+@media screen and (min-width: 768px){
+  .h{
+    &1{
+      font-size: 3rem !important;
+    }
+  
+    &2{
+      font-size: 2rem !important;
+    }
+  
+    &3{
+      font-size: 1.6rem !important;
+    }
+  
+    &4{
+      font-size: 1.2rem !important;
+    }
+  
+    &5{
+      font-size: 1rem !important;
+    }
   }
 }
 
@@ -285,6 +310,10 @@ video::-webkit-media-controls-enclosure {
     color: var(--black) !important;
   }
 
+  &blue{
+    color: var(--blue) !important;
+  }
+
   &white{
     color: var(--white) !important;
   }
@@ -295,6 +324,9 @@ video::-webkit-media-controls-enclosure {
 
   &green{
     color: var(--green) !important;
+  }
+  &sass{
+    color:#c69 !important
   }
 }
 
@@ -584,26 +616,34 @@ video::-webkit-media-controls-enclosure {
   }
 }
 
-.bg-color-{
-  &main {
-    background-color: var(--bg-color-main) !important;
+.bg-{
+  &color-{
+    &main {
+      background-color: var(--bg-color-main) !important;
+    }
+    &secondary {
+      background-color: var(--bg-color-secondary) !important;
+    }
+    &tertiary {
+      background-color: var(--bg-color-tertiary) !important;
+    }
+    &yellow {
+      background-color: var(--yellow) !important;
+    }
+    &red {
+      background-color: var(--red) !important;
+    }
+    &green {
+      background-color: var(--green) !important;
+    }
   }
-  &secondary {
-    background-color: var(--bg-color-secondary) !important;
-  }
-  &tertiary {
-    background-color: var(--bg-color-tertiary) !important;
-  }
-  &yellow {
-    background-color: var(--yellow) !important;
-  }
-  &red {
-    background-color: var(--red) !important;
-  }
-  &green {
-    background-color: var(--green) !important;
+  &video-{
+    &home{
+      background: url(../src/assets/videos/Background_video.mp4) ;
+    }
   }
 }
+
 
 .border-radius-{
   &none {
