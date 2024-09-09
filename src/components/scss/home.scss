@@ -5,7 +5,7 @@
         top: 80px;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 200vh;
         object-fit: cover;
         z-index: 0;
     }
@@ -30,7 +30,6 @@
         backdrop-filter: blur(5px);
         z-index: 1;
         transition: all .5s ease-in-out;
-        line-break: anywhere;
         overflow: hidden;
         
 
@@ -93,6 +92,10 @@
             gap: 1rem;
         }
 
+        &-right{
+            width: calc(100% - 70px);
+        }
+
         
 
     }
@@ -119,6 +122,54 @@
             visibility: hidden;
         }
     }
+    }
+
+}
+
+.techstack{
+    &-container{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    &-child{
+        &{
+          animation: 2s all ease-in-out;
+        }
+        &-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding:10px;
+        }
+        &-container:hover{
+            > .techstack-child-name {
+                opacity: 1;
+            }
+        }
+
+        &-name{
+            opacity: 0;
+            width: max-content;
+            position: absolute;
+            top: 40px;
+            z-index: 2;
+            &:nth-child(0){
+                left: -5px;
+            }
+        }
+
+        &-icon{
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        &-child-name{
+            top: 50px;
+        }
     }
 
 }
