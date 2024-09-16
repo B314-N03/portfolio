@@ -95,24 +95,24 @@ function Home() {
     };
 
     setTimeout(async () => {
-      // Show the file with its initial permissions
-      await typeCommand("ls -l", [initialPermissionsLine]);
+      // // Show the file with its initial permissions
+      // await typeCommand("ls -l", [initialPermissionsLine]);
 
-      // Apply chmod +x and show the command
-      await typeCommand("chmod +x portfolio.sh", []);
+      // // Apply chmod +x and show the command
+      // await typeCommand("chmod +x portfolio.sh", []);
 
-      // Show the file with its updated permissions
-      await typeCommand("ls -l", [updatedPermissionsLine]);
+      // // Show the file with its updated permissions
+      // await typeCommand("ls -l", [updatedPermissionsLine]);
 
-        await typeCommand("./portfolio.sh", [
-          "Initializing...",
-          "Loading configurations...",
-          "Starting server...",
-          "Fetching initial data...",
-          "Server initialized successfully.",
-          "Done!",
-          "Now starting Portfolio please Stand By...",
-        ]);
+      //   await typeCommand("./portfolio.sh", [
+      //     "Initializing...",
+      //     "Loading configurations...",
+      //     "Starting server...",
+      //     "Fetching initial data...",
+      //     "Server initialized successfully.",
+      //     "Done!",
+      //     "Now starting Portfolio please Stand By...",
+      //   ]);
       
         // After the initialization completes, trigger the fade-out/fade-in animation
         document.getElementById("terminal-body").classList.add("animate__fadeOut");
@@ -191,16 +191,17 @@ function Home() {
       svg: true,
       svgPath: javaSVG
     },
-
   }
+
+
 
   return (
     <div className='content bg-video-home'>
       <video autoPlay muted playsInline loop unselectable='true' disablePictureInPicture id="myVideo" className='home-video' src={backgroundVideo}></video>
       <Breadcrumb name="Home" />
-      <div className="home-profileCard-container min-height-60vh">
-        <div
-          className="home-profileCard cursor-pointer">
+      <div className="home-profileCard-container min-height-60vh ">
+        <div className="home-profileCard cursor-pointer text-color-main">
+        {/* <div className="home-profileCard cursor-pointer text-color-main"> */}
             <div className="home-profileCard-header">
               <div className="home-profileCard-header-icon-container">
                 <div className="bg-color-red terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-red")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-red")}>
@@ -226,11 +227,11 @@ function Home() {
               <div key={index} className="home-profileCard-terminal-line">
                 <div className="flex-row flex-gap-10p align-center">
                   <div className="text-color-red font-size-secondary">root@belanoe:</div>
-                  <div className="text-color-white font-size-main">~</div>
-                  <div className="text-color-white font-size-secondary">{line.command}</div>
+                  <div className="text-color-main font-size-main">~</div>
+                  <div className="text-color-main font-size-secondary">{line.command}</div>
                 </div>
                 {line.output && line.output.split('\n').map((outputLine, idx) => (
-                  <div key={idx} className="text-color-white font-size-secondary">
+                  <div key={idx} className="text-color-main font-size-secondary">
                     {outputLine}
                   </div>
                 ))}
