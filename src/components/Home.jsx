@@ -95,24 +95,24 @@ function Home() {
     };
 
     setTimeout(async () => {
-      // // Show the file with its initial permissions
-      // await typeCommand("ls -l", [initialPermissionsLine]);
+      // Show the file with its initial permissions
+      await typeCommand("ls -l", [initialPermissionsLine]);
 
-      // // Apply chmod +x and show the command
-      // await typeCommand("chmod +x portfolio.sh", []);
+      // Apply chmod +x and show the command
+      await typeCommand("chmod +x portfolio.sh", []);
 
-      // // Show the file with its updated permissions
-      // await typeCommand("ls -l", [updatedPermissionsLine]);
+      // Show the file with its updated permissions
+      await typeCommand("ls -l", [updatedPermissionsLine]);
 
-      //   await typeCommand("./portfolio.sh", [
-      //     "Initializing...",
-      //     "Loading configurations...",
-      //     "Starting server...",
-      //     "Fetching initial data...",
-      //     "Server initialized successfully.",
-      //     "Done!",
-      //     "Now starting Portfolio please Stand By...",
-      //   ]);
+        await typeCommand("./portfolio.sh", [
+          "Initializing...",
+          "Loading configurations...",
+          "Starting server...",
+          "Fetching initial data...",
+          "Server initialized successfully.",
+          "Done!",
+          "Now starting Portfolio please Stand By...",
+        ]);
       
         // After the initialization completes, trigger the fade-out/fade-in animation
         document.getElementById("terminal-body").classList.add("animate__fadeOut");
@@ -201,7 +201,6 @@ function Home() {
       <Breadcrumb name="Home" />
       <div className="home-profileCard-container min-height-60vh ">
         <div className="home-profileCard cursor-pointer text-color-main">
-        {/* <div className="home-profileCard cursor-pointer text-color-main"> */}
             <div className="home-profileCard-header">
               <div className="home-profileCard-header-icon-container">
                 <div className="bg-color-red terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-red")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-red")}>

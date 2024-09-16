@@ -91,7 +91,7 @@
       
             /* For larger screens (above 900px) */
             @media screen and (min-width: 900px) {
-              display: none !important; /* Hide by default for larger screens */
+              display: none ; /* Hide by default for larger screens */
               opacity: 0;
             }
         }
@@ -111,17 +111,14 @@
             &-body{
                 flex-direction: row;
             }
-            &-right{
-                display: none !important
-            }
             &:hover {
                 width: 1200px;
                 .home-profileCard-right {
-                    display: flex;
-                    opacity: 1; /* Fade-in effect */
-                    transition: all 0.5s ease-in-out;
-                  }
+                    opacity: 1;
+                    transition: opacity 0.5s ease-in-out;
+                }
             }
+       
     }
     }
 
