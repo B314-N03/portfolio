@@ -3,8 +3,14 @@
     &-video {
         position: fixed;  /* Set position to fixed so it fills the entire viewport */
         top: 0;
+        position: fixed;  /* Set position to fixed so it fills the entire viewport */
+        top: 0;
         left: 0;
         width: 100%;
+        height: 100%;   /* Set the height to cover 100% of the viewport */
+        object-fit: cover;  /* Ensures the video covers the entire container while maintaining aspect ratio */
+        z-index: 0;  /* Ensure it stays behind other content */
+        overflow: hidden;
         height: 100%;   /* Set the height to cover 100% of the viewport */
         object-fit: cover;  /* Ensures the video covers the entire container while maintaining aspect ratio */
         z-index: 0;  /* Ensure it stays behind other content */
@@ -104,6 +110,9 @@
         &-profileCard{
             &-body{
                 flex-direction: row;
+            }
+            &-right{
+                display: none !important
             }
             &:hover {
                 width: 1200px;
