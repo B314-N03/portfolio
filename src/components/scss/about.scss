@@ -1,0 +1,36 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.ovalButton{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--bg-color-secondary);
+    color: white;
+    font-size: var(--font-size-tertiary);
+    cursor: pointer;
+}
+
+/* Initial state for paragraphs */
+.paragraph {
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  }
+  
+  .slide-in-left {
+    transform: translateX(-50px); 
+  }
+  
+  .slide-in-right {
+    transform: translateX(50px); 
+  }
+  
+  .paragraph.visible {
+    opacity: 1;
+    transform: translateX(0); 
+}
+  
