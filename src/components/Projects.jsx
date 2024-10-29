@@ -17,14 +17,14 @@ function Projects() {
       time: "seit September 2024",
       icon: faCode,
       color: "#FE5F55",
-      link: null,
-      linkText: null,
       techStack: [
         "React",
         "Node.Js",
         "Three.js",
         "Firebase",
-      ]
+      ],
+      link:"https://github.com/B314-N03/portfolio",
+      linkText:"zur Repo"
     },
     {
       name: "ELGIO Dashboard",
