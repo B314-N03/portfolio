@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+
+html{
+}
+
 body {
+
   margin: 0;
   font-family: "Inconsolata",
     sans-serif;
@@ -104,9 +110,6 @@ video::-webkit-media-controls-enclosure {
   --font-size-secondary: 1.1rem;
   --font-size-tertiary: 1rem;
   --font-size-quaternary: .9rem;  
-}
-
-@media only screen and (min-width: 600px) {
 }
 
 @media only screen and (min-width: 730px) {
@@ -266,8 +269,34 @@ video::-webkit-media-controls-enclosure {
     display: flex !important;
     flex-direction: row !important;
   }
+
+  &wrap{
+    flex-wrap: wrap !important;
+  }
 }
 
+.position-{
+  &absolute{
+    position: absolute !important;  
+  }
+
+  &relative{
+    position: relative !important;
+  }
+
+  &fixed{
+    position: fixed !important;
+  }
+
+  &sticky{
+    position: sticky !important;
+  }
+
+  &unset{
+    position: unset !important;
+  }
+
+}
 
 .visibility-{
   &hidden{
@@ -470,6 +499,7 @@ video::-webkit-media-controls-enclosure {
     height: 25% !important;
   }
 }
+
 
 
 .m{
@@ -715,7 +745,7 @@ video::-webkit-media-controls-enclosure {
     }
   }
 
-  @for $i from 1 through 500 {
+  @for $i from 1 through 1500 {
     .#{$prefix}-#{$i}p {
       #{$property}: #{$i}px !important;
     }
@@ -741,7 +771,7 @@ video::-webkit-media-controls-enclosure {
     }
   }
 
-  @for $i from 1 through 500 {
+  @for $i from 1 through 1500 {
     .#{$prefix}-#{$i}p {
       #{$property}: #{$i}px !important;
     }
@@ -769,7 +799,7 @@ video::-webkit-media-controls-enclosure {
     animation-name: fadeIn !important;
   }
   &fadeOut{ 
-    animation-duration: 1s ;
+    animation-duration: .5s ;
     animation-name: fadeOut !important;
   }
   &fadeInOpacity-8{ 
@@ -805,6 +835,20 @@ video::-webkit-media-controls-enclosure {
   }
 }
 
+.btn{
+  &-main{
+    background-color: var(--text-color-main);
+    color: var(--bg-color-main);
+    padding: 5px 15px;
+    border-radius: 8px;
+    width: fit-content;
+    &:hover{
+      background-color: var(--text-color-secondary);
+      color: var(--bg-color-main);
+    }
+  }
+}
+
 .content{
   width: calc(100% - 50px);
   min-height: calc(100vh - 110px);
@@ -813,6 +857,7 @@ video::-webkit-media-controls-enclosure {
   flex-direction: column;
   gap: 10px;
   background-color: var(--bg-color-main);
+  overflow-x: hidden !important;
 }
 
 .breadcrumb{
