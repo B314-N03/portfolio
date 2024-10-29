@@ -24,7 +24,7 @@ function Projects() {
         "Firebase",
       ],
       link:"https://github.com/B314-N03/portfolio",
-      linkText:"zur Repo"
+      linkText:"zum Repository"
     },
     {
       name: "ELGIO Dashboard",
