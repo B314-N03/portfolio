@@ -54,9 +54,6 @@ function Home() {
 
 
   useEffect(() => {
- // Original permissions before chmod +x (rw-rw-r--)
- const initialPermissionsLine = "-rw-rw-r-- 1 root root 6.6K  " +  monthsMap[month] + " " + day  +  " portfolio.sh";
-
  // Updated permissions after chmod +x (rwxrwxr-x)
  const updatedPermissionsLine = "-rwxrwxr-x 1 root root 6.6K  " +  monthsMap[month] + " " + day  +  " portfolio.sh";
    
@@ -96,24 +93,11 @@ function Home() {
 
     setTimeout(async () => {
       // Show the file with its initial permissions
-      await typeCommand("ls -l", [initialPermissionsLine]);
-
-      // Apply chmod +x and show the command
-      await typeCommand("chmod +x portfolio.sh", []);
-
       // Show the file with its updated permissions
       await typeCommand("ls -l", [updatedPermissionsLine]);
 
-        await typeCommand("./portfolio.sh", [
-          "Initializing...",
-          "Loading configurations...",
-          "Starting server...",
-          "Fetching initial data...",
-          "Server initialized successfully.",
-          "Done!",
-          "Now starting Portfolio please Stand By...",
-        ]);
-      
+        await typeCommand("./portfolio.sh",["Starting..."]);
+        if(document.getElementById("terminal-body") === null) return
         // After the initialization completes, trigger the fade-out/fade-in animation
         document.getElementById("terminal-body").classList.add("animate__fadeOut");
         setTimeout(() => {
@@ -126,6 +110,7 @@ function Home() {
     };
   
     exec();
+
   }, []);
 
   const handleMouseEnterTerminalIcon = (id) => {
@@ -193,6 +178,27 @@ function Home() {
     },
   }
 
+  const handleMouseEnterProfileCard = () => {
+    if(window.innerWidth > 768){
+      document.getElementsByClassName("home-profileCard-right")[0].classList.remove("animate__fadeOut");
+      setTimeout(() => {
+        document.getElementsByClassName("home-profileCard-right")[0].classList.add("animate__fadeIn");
+        document.getElementsByClassName("home-profileCard-right")[0].classList.remove("visibility-hidden");
+        document.getElementsByClassName("home-profileCard-right")[0].classList.remove("position-absolute");
+      },500)
+    }
+  };
+
+  const handleMouseLeaveProfileCard = () => {
+    if(window.innerWidth > 768){
+      document.getElementsByClassName("home-profileCard-right")[0].classList.remove("animate__fadeIn");
+      document.getElementsByClassName("home-profileCard-right")[0].classList.add("animate__fadeOut");
+      setTimeout(() => {
+        document.getElementsByClassName("home-profileCard-right")[0].classList.add("visibility-hidden");
+        document.getElementsByClassName("home-profileCard-right")[0].classList.add("position-absolute");
+      },200)
+    }
+  };
 
 
   return (
@@ -200,7 +206,7 @@ function Home() {
       <video autoPlay muted playsInline loop unselectable='true' disablePictureInPicture id="myVideo" className='home-video' src={backgroundVideo}></video>
       <Breadcrumb name="Home" />
       <div className="home-profileCard-container min-height-60vh ">
-        <div className="home-profileCard cursor-pointer text-color-main">
+        <div className="home-profileCard cursor-pointer text-color-main" onMouseEnter={() => handleMouseEnterProfileCard()} onMouseLeave={() => handleMouseLeaveProfileCard()}>
             <div className="home-profileCard-header">
               <div className="home-profileCard-header-icon-container">
                 <div className="bg-color-red terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-red")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-red")}>
@@ -244,7 +250,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="home-profileCard-right p-35p flex-column flex-gap-10p">
+              <div className={`${window.innerWidth > 768 ? "visibility-hidden position-absolute " : ""}home-profileCard-right p-35p flex-column flex-gap-10p`}>
                 <div className="w-100 justify-center align-center flex-row">
                   <div className="circle w-100p h-100p flex-column justify-center align-center">
                     <FontAwesomeIcon icon={faUser} size='2x' className="text-color-white"></FontAwesomeIcon>
@@ -266,7 +272,7 @@ function Home() {
                       Sprachen : Englisch, Deutsch  
                     </span>
                     <span>
-                      Aktuellestes Projekt : ELGIO 
+                      Aktuellestes Projekt : <a href="https://elgio.de" target="_blank" rel="noopener noreferrer" className='text-color-blue no-text-decoration'>ELGIO</a> 
                     </span>
                     <span>
                       Aktueller Techstack : 
