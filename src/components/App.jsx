@@ -14,47 +14,43 @@ import ThemeProvider from './providers/ThemeProvider';
 import LoginModal from './LoginModal';
 import { useState } from 'react';
 import ComingSoon from './ComingSoon';
+import UserProvider from './providers/UserProvider';
 
 function App() {
   const [showLoginModal,setShowLoginModal] = useState(false)
   return (
     <ThemeProvider>
-      <Router>
-        <Navbar showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></Navbar>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={
-          <ComingSoon></ComingSoon>
-          // <About/>
-          }/>
-          <Route path="/contact" element={
-            <ComingSoon></ComingSoon>
-            // <Contact/>
-            } />
-          <Route path="/projects" element={
-            <ComingSoon></ComingSoon>
-            // <Projects/>
-            } />
-          <Route path='/other' element={
-            <ComingSoon></ComingSoon>
-            // <Other/>
-            }/>
-          <Route path='/other/side-projects' element={
-            <ComingSoon></ComingSoon>
-            // <SideProjects/>
-            }></Route>
-          <Route path='/other/cv' element={
-            <ComingSoon></ComingSoon>
-            // <CV/>
-            }></Route>
-          <Route path='/other/impressum' element={<Impressum/>}></Route>
-          {/* <Route path="/login" element={<Login/>} /> */}
-          <Route path="*" element={<NotFound/>} />
-        </Routes>
-        <Footer></Footer>
-        <LoginModal modalOpen={showLoginModal} setModalOpen={setShowLoginModal}></LoginModal>
-      </Router>
-      
+      <UserProvider>
+        <Router>
+          <Navbar showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></Navbar>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contact" element={
+              <ComingSoon></ComingSoon>
+              // <Contact/>
+              } />
+            <Route path="/projects" element={<Projects/>} />
+            <Route path='/other' element={
+              <ComingSoon></ComingSoon>
+              // <Other/>
+              }/>
+            <Route path='/other/side-projects' element={
+              <ComingSoon></ComingSoon>
+              // <SideProjects/>
+              }></Route>
+            <Route path='/other/cv' element={
+              <ComingSoon></ComingSoon>
+              // <CV/>
+              }></Route>
+            <Route path='/other/impressum' element={<Impressum/>}></Route>
+            {/* <Route path="/login" element={<Login/>} /> */}
+            <Route path="*" element={<NotFound/>} />
+          </Routes>
+          <Footer></Footer>
+          <LoginModal modalOpen={showLoginModal} setModalOpen={setShowLoginModal}></LoginModal>
+        </Router>
+      </UserProvider>
     </ThemeProvider>
 
   );
