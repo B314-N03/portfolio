@@ -237,6 +237,15 @@ video::-webkit-media-controls-enclosure {
   }
 }
 
+.input{
+  border:none;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: var(--text-color-main);
+  color: var(--bg-color-main);
+  outline: none;
+}
+
 
 .underline{
   text-decoration: underline;
@@ -294,6 +303,21 @@ video::-webkit-media-controls-enclosure {
 
   &unset{
     position: unset !important;
+  }
+
+}
+
+.right-{
+  &unset{
+    right: unset !important;
+  }
+
+  &auto{
+    right: auto !important;
+  }
+
+  &0{
+    right: 0 !important;
   }
 
 }
@@ -378,6 +402,33 @@ video::-webkit-media-controls-enclosure {
   &center{ 
     justify-content: center !important;
   }
+
+  &start{
+    justify-content: flex-start !important;
+  }
+
+  &end{
+    justify-content: flex-end !important;
+  }
+}
+
+.z-index-{
+
+  &0{
+    z-index: 0 !important;
+  }
+
+  &1{
+    z-index: 1 !important;
+  }
+
+  &2{
+    z-index: 2 !important;
+  }
+
+  &999{
+    z-index: 999 !important;
+  }
 }
 
 .align-{
@@ -411,6 +462,10 @@ video::-webkit-media-controls-enclosure {
 
   &3rem{ 
     gap: 3rem !important;
+  }
+
+  &5p{
+    gap: 5px !important;
   }
 
   &10p{ 
@@ -740,6 +795,9 @@ video::-webkit-media-controls-enclosure {
     .#{$prefix}-#{$size}vh {
       #{$property}: #{$size}vh !important;
     }
+    .#{$prefix}-#{$size}vw {
+      #{$property}: #{$size}vw !important;
+    }
     .#{$prefix}-#{$size}pct {
       #{$property}: #{"#{$size}%"} !important;
     }
@@ -751,6 +809,9 @@ video::-webkit-media-controls-enclosure {
     }
     .#{$prefix}-#{$i}vh {
       #{$property}: #{$i}vh !important;
+    }
+    .#{$prefix}-#{$i}vw{
+      #{$property}: #{$i}vw !important;
     }
     .#{$prefix}-#{$i}pct {
       #{$property}: #{"#{$i}%"} !important;
@@ -766,6 +827,9 @@ video::-webkit-media-controls-enclosure {
     .#{$prefix}-#{$size}vh {
       #{$property}: #{$size}vh !important;
     }
+    .#{$prefix}-#{$size}vw {
+      #{$property}: #{$size}vw !important;
+    }
     .#{$prefix}-#{$size}pct {
       #{$property}: #{"#{$size}%"} !important;
     }
@@ -777,6 +841,9 @@ video::-webkit-media-controls-enclosure {
     }
     .#{$prefix}-#{$i}vh {
       #{$property}: #{$i}vh !important;
+    }
+    .#{$prefix}-#{$i}vw {
+      #{$property}: #{$i}vw !important;
     }
     .#{$prefix}-#{$i}pct {
       #{$property}: #{"#{$i}%"} !important;
@@ -842,9 +909,19 @@ video::-webkit-media-controls-enclosure {
     padding: 5px 15px;
     border-radius: 8px;
     width: fit-content;
+    cursor: pointer;
     &:hover{
       background-color: var(--text-color-secondary);
       color: var(--bg-color-main);
+    }
+    &-disabled{
+      background-color: var(--lightgrey);
+      color: var(--text-color-main);
+      opacity: .6;
+      cursor: not-allowed;
+      padding: 5px 15px;
+      border-radius: 8px;
+      width: fit-content;  
     }
   }
 }
@@ -867,10 +944,64 @@ video::-webkit-media-controls-enclosure {
   gap: 10px;
 }
 
+.tooltip-container {
+  position: relative; 
+  display: inline-block;
+}
 
+.tooltip {
+  background-color: var(--bg-color-secondary);
+  color: var(--white);
+  border: 1px solid var(--text-color-main);
+  padding: 8px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); 
+  max-width: 200px;
+  text-align: center;
+  font-size: 14px;
+  visibility: hidden;
+  min-width: 150px;
+  &-windows{
+    background-color: var(--bg-color-main);
+    color: var(--text-color-main);
+    padding: 8px;
+    position: absolute;
+    bottom: calc(100% + 2.5px); 
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px); 
+    max-width: 200px;
+    text-align: center;
+    font-size: 14px;
+    visibility: hidden;
+    min-width: 30px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--bg-color-secondary) transparent transparent transparent; 
+  }
+}
+.tooltip-container:hover .tooltip, .tooltip-container:hover .tooltip-windows {
+  visibility: visible;
+}
 
 .no-text-decoration{
   text-decoration: none !important;
+}
+
+.center-self-pos{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 
