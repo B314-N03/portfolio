@@ -5,5 +5,92 @@
     padding: 5px 15px;
     background-color: var(--bg-color-secondary);
     color: var(--text-color-main);
-
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    height: 100%;
 }
+
+.active-badge{
+    background-color: var(--text-color-main);
+}
+
+.badge-text{
+    color: var(--white);
+    &-active{
+        color: var(--bg-color-main);
+    }
+}
+
+.filterBox{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--bg-color-secondary);
+    align-items: end;
+    width: calc(100% - 20px);
+    flex-wrap: wrap;
+    color: var(--white);
+}
+
+.search-icon{
+    color: var(--bg-color-main);
+    position: absolute;
+    right: 15px;
+}
+
+.searchInput{
+    width: calc(100% - 20px);
+}
+
+.filterBox-select-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: calc(100% - 10px);
+}
+
+.filterBox-select{
+    width: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .searchInput{
+        width: calc(50% - 20px);
+    }
+    .filterBox-select-container{
+        width: calc(50% - 10px);
+    }
+    .filterBox-select{
+        width: calc(50% - 10px);
+    }
+}
+
+.project-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--bg-color-secondary);
+    color: var(--text-color-main);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 70vh;
+    transition: width 1s ease-in-out;
+    transform: translate(-50%,-50%);
+}
+
+.badge-disabled{
+    background-color: var(--lightgrey);
+    color: var(--text-color-main);
+    opacity: .6;
+    cursor: not-allowed;
+}
+
