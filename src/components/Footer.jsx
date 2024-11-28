@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './scss/footer.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareGithub, faSquareInstagram, faXingSquare } from '@fortawesome/free-brands-svg-icons'
-
+import { SiteContext } from './providers/SiteProvider';
+import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
+import cv from '../assets/pdf/lebenslauf_bela.pdf'
 
 function Footer() {
+    const {siteType} = useContext(SiteContext);
   return (
-    <div className='footer'>
+    <div className={`footer${siteType !== 'static' ? " d-none" : ""}`}>
 
         {/* Menu */}
         <div className="flex-gap-3rem flex-wrap footer-menu-conatiner" >
@@ -21,11 +24,13 @@ function Footer() {
             </div>
             <div className="footer-seperator"></div>
             <div className="flex-column flex-gap-1rem h-100">
-                <a href='/other' className="fs-1 underline footer-sonstiges-containter navbar-item" data-underline><strong>Sonstiges</strong></a>
-                <div className="ml-10 flex-column flex-gap-1rem fs-3">
-                    <a href="/other/side-projects" className='navbar-item'>Nebenprojekte</a>
-                    <a href="/other/cv" className='navbar-item'>Lebenslauf</a>
-                    <a href='/other/impressum' className='navbar-item'>Impressum</a>
+            <div className="fs-1 underline"><strong>Sonstiges</strong></div>
+            <div className="ml-10 flex-column flex-gap-1rem fs-3">
+                    <a href={cv} download target='_blank' rel="noreferrer" className='navbar-item flex-row flex-gap-1rem'>
+                        Lebenslauf
+                        <FontAwesomeIcon className='white' icon={faFileDownload}></FontAwesomeIcon>
+                    </a>
+                    <a href='/impressum' className='navbar-item'>Impressum</a>
                 </div>
             </div>
             <div className="footer-seperator"></div>

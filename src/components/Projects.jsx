@@ -1,13 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import Breadcrumb from './Breadcrumb'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
-import { faChevronDown, faChevronLeft, faCode, faFilter, faPerson, faSearch, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faChevronLeft, faCode, faFilter, faPerson, faSearch, faSuitcase, faX } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from './providers/ThemeProvider'
 import './scss/projects.scss'
 import { projectsMap } from './global/projectsMap.jsx'
 import { set } from 'date-fns'
+import BackgroundImage from './widgets/Background_image.jsx'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 function Projects() {
   const {theme} = useContext(ThemeContext)
@@ -33,6 +36,34 @@ function Projects() {
   const [searchFilter,setSearchFilter] = useState("tags")
   const [sort,setSort] = useState("asc")
   const [searchQuery,setSearchQuery] = useState("")
+  const [searchParams,setSearchParams] = useSearchParams()
+  const [openDemo,setOpenDemo] = useState(searchParams.get("open_demo"))
+  const demoPositions = {
+    "led-matrix":{
+      x: 0,
+      y: 1200,
+      projectIndex:2
+    },
+    "port-scanner":{
+      x: 0,
+      y: 1700,
+      projectIndex:3
+    }
+  }
+
+  
+
+  useEffect(() => {
+    if(openDemo){
+      setTimeout(() => {
+        window.scrollTo({left:demoPositions[openDemo].x,top:demoPositions[openDemo].y,behavior:"smooth"})
+      },500)
+      setTimeout(() => {
+        document.getElementsByClassName("vertical-timeline-element--work")[demoPositions[openDemo].projectIndex].classList.add("animate__animated")
+        document.getElementsByClassName("vertical-timeline-element--work")[demoPositions[openDemo].projectIndex].classList.add("animate__pulse")
+      }, 1200)
+    }
+  },[openDemo])
 
   const fetchCommits = async () => {
     const updatedProjects = await Promise.all(
@@ -158,14 +189,23 @@ function Projects() {
       }
       return project
     }))
+    const demo_modal = document.getElementById(`demo-modal-${projects[index].name.toLowerCase().replace(" ","-")}`)
+    const demo_modal_content = document.getElementById(`demo-modal-content-${projects[index].name.toLowerCase().replace(" ","-")}`)
     setTimeout(() => {
-      projects[index].modalOpen 
-      ? document.getElementById(`demo-modal-${projects[index].name.toLowerCase()}`).classList.add("w-80vw")
-      : document.getElementById(`demo-modal-${projects[index].name.toLowerCase()}`).classList.remove("w-80vw")
+      if(projects[index].modalOpen){
+        demo_modal.classList.add("w-80vw")
+        setTimeout(() => {
+          demo_modal_content.classList.remove("visibility-hidden")
+          demo_modal_content.classList.add("animate__fadeIn")
+        },500)
+      } 
+      else demo_modal.classList.remove("w-80vw")
     }, 500)
   }
+
   return (
     <div className='content'>
+        <BackgroundImage></BackgroundImage>
         <Breadcrumb name="Projekte"/>
         <div className="w-100 flex-column justify-center align-center flex-gap-2rem">
           <div className="text-color-main flex-column justify-center align-center flex-gap-1rem flex-wrap">
@@ -237,7 +277,7 @@ function Projects() {
                                 dateClassName={project.dateColor && window.innerWidth < 1170 ? project.dateColor : 'text-color-main'} 
                             >
                               <div className="flex-column flex-gap-2rem">
-                                <div className='h2'>{project.name}</div>
+                                <div className='h2' id={project.name.toLowerCase().replace(" ","-").replace("_","-")}>{project.name}</div>
                                 <p> 
                                     {project.description}
                                 </p>
@@ -250,7 +290,7 @@ function Projects() {
                                           <>
                                             {tech.startsWith(".") ?
                                               <div className='tooltip-container'>
-                                                <div className="tooltip">Das ist noch in Arbeit. Ich arbeite aktuell an einem interaktivem 3D Modell meines Zimmers</div>
+                                                <div className="tooltip">{project.techStackTooltipText[tech.slice(1)]}</div>
                                                 <span className={`badge${theme === 'light' ? ' text-color-white' : ''}${tech.startsWith(".") ? ' badge-disabled' : ''}`} key={index}>{tech.startsWith(".") ? tech.slice(1) : tech}</span>
                                               </div>
                                             : 
@@ -275,9 +315,15 @@ function Projects() {
             {projects.length > 0 && projects.map((project, index) => {
               if (!project.showModalButton && !project.modalOpen) {
                 return null
-              }
+              } 
               return (
-                <div id={`demo-modal-${project.name.toLowerCase()}`} className={`project-modal${project.modalOpen ? ' visibility-visible' : ' visibility-hidden'}`} key={index}></div>
+                <div id={`demo-modal-${project.name.toLowerCase().replace(" ","-")}`} className={`glass-card-grey project-modal${project.modalOpen ? ' visibility-visible' : ' visibility-hidden'}`} key={index}>
+                <div className="project-modal-header">
+                  <div className="h1">Demo-Modal: {project.name}</div>
+                  <FontAwesomeIcon icon={faX} className='cursor-pointer h3' onClick={() => handleOpenModal(index)}></FontAwesomeIcon>
+                </div>
+                {project.modalComponent}
+              </div>
               )
             })}
         </div>

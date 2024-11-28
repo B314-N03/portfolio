@@ -1,10 +1,14 @@
 import Breadcrumb from './Breadcrumb'
+import BackgroundImage from './widgets/Background_image'
 
 
 function Impressum() {
 
   return (
-    <div className='content text-color-main'>
+    <div className='content text-color-main z-index-1'>
+        <BackgroundImage></BackgroundImage>
+        <div className="z-index-1">
+
         <Breadcrumb name="Sonstiges" subname='Impressum'/>
         <p className="h1">Impressum</p>
         <div className="w-75">
@@ -12,7 +16,6 @@ function Impressum() {
         <p class="h2">Informationen über den Diensteanbieter</p>
         <p><strong>Béla Noé</strong><br/>
             Deutschland<br/>
-            Tel.: 0177/2336345<br/>
             E-Mail: bela-noe@web.de
         </p>
 
@@ -263,6 +266,8 @@ function Impressum() {
 
 
     </div>
+    </div>
+
 </div>
 
 )

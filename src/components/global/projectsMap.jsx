@@ -2,6 +2,7 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import bashSVG from "../../assets/images/gnu_bash-icon.svg"
 import { faFlutter, faPython } from "@fortawesome/free-brands-svg-icons";
 import { randInt } from "three/src/math/MathUtils.js";
+import LedMatrixDemo from "../project_demos/led_matrix_demo";
 
 export  const projectsMap = [  {
     name: "Portfolio Website",
@@ -17,9 +18,10 @@ export  const projectsMap = [  {
       "HTML",
       "CSS",
       "JavaScript",
-      "Git",
+      ".Git",
       ".Three.js"
     ],
+    techStackTooltipText: {"Three.js": "Das ist noch in Arbeit. Ich arbeite aktuell an einem interaktivem 3D Modell meines Zimmers"},
     link:"https://github.com/B314-N03/portfolio",
     linkText:"zum Repository",
     repoLink:"https://github.com/B314-N03/portfolio",
@@ -61,7 +63,8 @@ export  const projectsMap = [  {
     type:"personal_project",
     showModalButton: true,
     modalOpen: false,
-    modalDisabled: true
+    modalDisabled: true,
+    modalComponent: <LedMatrixDemo></LedMatrixDemo>
   },
   {
     name: "Port-Scanner",

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react';
 import Breadcrumb from './Breadcrumb';
 import './scss/home.scss';
 import backgroundVideo from '../assets/videos/Background_video.mp4';
@@ -12,106 +13,74 @@ import javaSVG from "../assets/images/java-icon.svg"
 import typescriptSVG from "../assets/images/typescriptlang-icon.svg"
 import bashSVG from "../assets/images/gnu_bash-icon.svg"
 import pythonSVG from "../assets/images/python.svg"
+import Taskbar from './taskbar';
+import kaliBg from "../assets/images/kali-bg.png"
+import { ThemeContext } from './providers/ThemeProvider';
+import { SiteContext } from './providers/SiteProvider';
 
 function Home() {
-  const [cardFlipped, setCardFlipped] = useState(false);
-  const [terminalLines, setTerminalLines] = useState([{ command: '', output: '' }]);
-  
-  // For the Navbar date Element
-  const month = new Date().getMonth();
-  const day = new Date().getDate();
-  const monthsMap = {
-    0: "Jan",
-    1: "Feb",
-    2: "Mar",
-    3: "Apr",
-    4: "May",
-    5: "Jun",
-    6: "Jul",
-    7: "Aug",
-    8: "Sep",
-    9: "Oct",
-    10: "Nov",
-    11: "Dec"
-  }
-  // Set the birthdate to 13th June 2003
-  const birthdate = new Date(2003, 5, 13);  // Note: Months are 0-indexed in JavaScript (0 = January, 5 = June)
+  const [terminalLines, setTerminalLines] = useState([]);
+  const [showTerminal, setShowTerminal] = useState(false);
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [currentCommand,setCurrentCommand] = useState("")
+  const {theme} = useContext(ThemeContext)
+  const {siteType} = useContext(SiteContext)
 
-  // Get today's date
+  const birthdate = new Date(2003, 5, 13);  
   const today = new Date();
-
-  // Calculate the difference in years
   let age = today.getFullYear() - birthdate.getFullYear();
-
-  // Adjust if the birthday hasn't occurred yet this year
   const monthDifference = today.getMonth() - birthdate.getMonth();
   const dayDifference = today.getDate() - birthdate.getDate();
-
   if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
       age--;
   }  
-  const ageOfMe = age
-
-
-  useEffect(() => {
- // Updated permissions after chmod +x (rwxrwxr-x)
- const updatedPermissionsLine = "-rwxrwxr-x 1 root root 6.6K  " +  monthsMap[month] + " " + day  +  " portfolio.sh";
-   
- const exec = async () => {
-  const typeCommand = async (commandText, outputTextArray) => {
-    let currentLine = { command: '', output: '' };
-
+  const ageOfMe = age   
+  const typeCommand = async (commandText, outputTextArray, styles = {}) => {
+    const { commandColor, commandSize, outputColor, outputSize } = styles;
+    let currentLine = { command: "", output: "", styles: {} };
+  
     // Typing out the command
     for (let i = 0; i < commandText.length; i++) {
       currentLine.command += commandText[i];
+      currentLine.styles = { commandColor, commandSize };
       setTerminalLines((prevLines) => {
         const updatedLines = [...prevLines];
         updatedLines[updatedLines.length - 1] = { ...currentLine };
         return updatedLines;
       });
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 50));
     }
-
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Pause before showing the output
-
-      // Adding the output line by line with random delays
-      for (let i = 0; i < outputTextArray.length; i++) {
-        currentLine.output += (i > 0 ? '\n' : '') + outputTextArray[i];
-        setTerminalLines((prevLines) => {
-          const updatedLines = [...prevLines];
-          updatedLines[updatedLines.length - 1] = { ...currentLine };
-          return updatedLines;
-        });
-
-        const randomDelay = Math.floor(Math.random() * 2000) + 1000; // Random delay between 1-10 seconds
-        await new Promise((resolve) => setTimeout(resolve, randomDelay));
-      }
-
-      // Add a new line for the next command
-      setTerminalLines((prevLines) => [...prevLines, { command: '', output: '' }]);
-    };
-
-    setTimeout(async () => {
-      // Show the file with its initial permissions
-      // Show the file with its updated permissions
-      await typeCommand("ls -l", [updatedPermissionsLine]);
-
-        await typeCommand("./portfolio.sh",["Starting..."]);
-        if(document.getElementById("terminal-body") === null) return
-        // After the initialization completes, trigger the fade-out/fade-in animation
-        document.getElementById("terminal-body").classList.add("animate__fadeOut");
-        setTimeout(() => {
-          document.getElementById("terminal-body").classList.remove("flex-column");
-          document.getElementById("terminal-body").classList.add("d-none");
-          document.getElementById("profileCard-body").classList.remove("d-none");
-          document.getElementById("profileCard-body").classList.add("animate__fadeIn");
-        }, 1000); // Adjust the delay to match the duration of the fadeOut animation
-      }, 2000);
-    };
   
-    exec();
+    await new Promise((resolve) => setTimeout(resolve, 300)); // Pause before showing the output
+  
+    // Adding the output line by line
+    for (let i = 0; i < outputTextArray.length; i++) {
+      currentLine.output += (i > 0 ? "\n" : "") + outputTextArray[i];
+      currentLine.styles = { commandColor, commandSize, outputColor, outputSize };
+      setTerminalLines((prevLines) => {
+        const updatedLines = [...prevLines];
+        updatedLines[updatedLines.length - 1] = { ...currentLine };
+        return updatedLines;
+      });
+      await new Promise((resolve) => setTimeout(resolve, 200));
+    }
+  
+    // Add a new line for the next command
+    setTerminalLines((prevLines) => [...prevLines, { command: "", output: "" }]);
+  };
+const exec = async () => {
+ // Enhanced function to include styles
+   setTimeout(async () => {
+      await typeCommand("./portfolio.sh",["Starting...","Hi, ich bin Béla Noé und bin Softwareentwickler und IT-Enthusiast!","Mit über 7 Jahren Erfahrung und Kenntnissen in mehr als 6 Sprachen, zeige ich dir hier meine Projekte.","Aktuellstes Projekt: ELGIO","Techstack bei ELGIO: NodeJs, React, Firebase, Sass, HTML, CSS, JavaScript, Git, Docker, Vitest",]);
+      await typeCommand("help",["Das portfolio ist so kreiert, dass man sich wie auf einem normalen Pc zurecht findet.","Klicke auf die Desktop-Symbole oder tippe den Befehl hier in das Terminal um durch mein Portfolio zu navigieren.","Verfügbare Befehle: help, projects, contact"]);
+      if(document.getElementById("terminal-body") === null) return
+     }, 2000);
+};
+ 
 
-  }, []);
+   useEffect(() => {
+    // exec();
+  },[]);
 
   const handleMouseEnterTerminalIcon = (id) => {
     document.getElementById(id).style.opacity = '1';
@@ -178,105 +147,168 @@ function Home() {
     },
   }
 
-  const handleMouseEnterProfileCard = () => {
-    if(window.innerWidth > 768){
-      document.getElementsByClassName("home-profileCard-right")[0].classList.remove("animate__fadeOut");
+  const handleOpenNewTerminal = () => {
+    setTerminalLines([])
+    setShowTerminal(!showTerminal)
+    exec()
+  }
+
+
+  const handleCheckboxClick = () => {
+    setCheckboxChecked(!checkboxChecked)
+  }
+
+
+  const handleCommandSubmit = (e) => {
+    e.preventDefault();
+
+    if (currentCommand.trim()) {
+      let output = '';
+
+      // Define your commands here
+      switch (currentCommand.trim()) {
+        case 'help':
+          output = "Available commands: help, projects, contact";
+          break;
+        case 'projects':
+          output = "Current project: ELGIO\nTechstack: Node.js, React, Firebase, Sass, etc.";
+          break;
+        case 'contact':
+          output = "Contact me at: example@example.com";
+          break;
+        default:
+          output = `Unknown command: ${currentCommand}`;
+      }
+
+      // Add command and output to the terminal
+      setTerminalLines((prevLines) => [
+        ...prevLines,
+        { command: currentCommand, output },
+      ]);
+
+      setCurrentCommand(''); // Clear input field
+    }
+  };
+
+  useEffect(() => {
+    if(siteType === "static") {
+      document.getElementById("text-1").classList.add("animate__fadeInDown")
+      document.getElementById("text-1").classList.remove("visibility-hidden")
       setTimeout(() => {
-        document.getElementsByClassName("home-profileCard-right")[0].classList.add("animate__fadeIn");
-        document.getElementsByClassName("home-profileCard-right")[0].classList.remove("visibility-hidden");
-        document.getElementsByClassName("home-profileCard-right")[0].classList.remove("position-absolute");
+        document.getElementById("text-2").classList.add("animate__fadeInDown")
+        document.getElementById("text-2").classList.remove("visibility-hidden")
+      },250)
+      setTimeout(() => {
+        document.getElementById("text-3").classList.add("animate__fadeInDown")
+        document.getElementById("text-3").classList.remove("visibility-hidden")
       },500)
     }
-  };
-
-  const handleMouseLeaveProfileCard = () => {
-    if(window.innerWidth > 768){
-      document.getElementsByClassName("home-profileCard-right")[0].classList.remove("animate__fadeIn");
-      document.getElementsByClassName("home-profileCard-right")[0].classList.add("animate__fadeOut");
-      setTimeout(() => {
-        document.getElementsByClassName("home-profileCard-right")[0].classList.add("visibility-hidden");
-        document.getElementsByClassName("home-profileCard-right")[0].classList.add("position-absolute");
-      },200)
-    }
-  };
-
+  },[])
 
   return (
-    <div className='content bg-video-home'>
-      <video autoPlay muted playsInline loop unselectable='true' disablePictureInPicture id="myVideo" className='home-video' src={backgroundVideo}></video>
-      <Breadcrumb name="Home" />
-      <div className="home-profileCard-container min-height-60vh ">
-        <div className="home-profileCard cursor-pointer text-color-main" onMouseEnter={() => handleMouseEnterProfileCard()} onMouseLeave={() => handleMouseLeaveProfileCard()}>
-            <div className="home-profileCard-header">
-              <div className="home-profileCard-header-icon-container">
-                <div className="bg-color-red terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-red")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-red")}>
-                  <FontAwesomeIcon icon={faClose} fontSize={"14px"} id="terminal-icon-red"></FontAwesomeIcon>
+    <div className='content'>
+
+      <img src={`${siteType === "static" ? "" : kaliBg}`} className={`${siteType === "static" ? theme === "dark" ? "bg-svg-dark" : "bg-svg-light" : "bg-svg-kali"}`}  alt={`${theme === "dark" ? "dark-svg-background" : "light-svg-background"}`}></img>
+      {/* Content for interactive site */}
+        {siteType !== "static" && <Taskbar></Taskbar>}
+        {siteType !== "static" && <div>
+          {!showTerminal && 
+                <div className="flex-column flex-gap-5p justify -center align-center w-fit-content position-absolute cursor-pointer" onClick={handleOpenNewTerminal}>
+                  <FontAwesomeIcon icon={faTerminal} className="h4 home-profileCard-header-terminal-icon "></FontAwesomeIcon>
+                  <div className="h4 text-color-main">Terminal</div>
+          </div>}
+        </div>}
+        {showTerminal && siteType !== "static" && <div className="home-profileCard-container min-height-60vh">
+          <div className="home-profileCard text-color-main">
+              <div className="home-profileCard-header">
+                <div className="home-profileCard-header-icon-container">
+                  <div className="bg-color-red terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-red")} onClick={() => setShowTerminal(!showTerminal)} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-red")}>
+                    <FontAwesomeIcon icon={faClose} fontSize={"14px"} id="terminal-icon-red" ></FontAwesomeIcon>
+                  </div>
+                  <div className="bg-color-yellow text-color-black terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-yellow")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-yellow")}>
+                    <FontAwesomeIcon icon={faMinus} fontSize={"14px"} id="terminal-icon-yellow"></FontAwesomeIcon>
+                  </div>
+                  <div className="bg-color-green terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-green")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-green")}>
+                    <FontAwesomeIcon icon={faPlus} fontSize={"14px"} id="terminal-icon-green"></FontAwesomeIcon>
+                  </div>
                 </div>
-                <div className="bg-color-yellow text-color-black terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-yellow")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-yellow")}>
-                  <FontAwesomeIcon icon={faMinus} fontSize={"14px"} id="terminal-icon-yellow"></FontAwesomeIcon>
+                <div className="home-profileCard-header-title">
+                  <span className="h4">root@belanoe: </span>
+                  <span className="h3">~</span>
                 </div>
-                <div className="bg-color-green terminal-header-icon" onMouseEnter={() => handleMouseEnterTerminalIcon("terminal-icon-green")} onMouseLeave={() => handleMouseLeaveTerminalIcon("terminal-icon-green")}>
-                  <FontAwesomeIcon icon={faPlus} fontSize={"14px"} id="terminal-icon-green"></FontAwesomeIcon>
-                </div>
+                <span className="h4 home-profileCard-header-terminal-icon">
+                  <FontAwesomeIcon icon={faTerminal}></FontAwesomeIcon>
+                </span>
               </div>
-              <div className="home-profileCard-header-title">
-                <span className="h4">root@belanoe: </span>
-                <span className="h3">~</span>
-              </div>
-              <span className="h4 home-profileCard-header-terminal-icon">
-                <FontAwesomeIcon icon={faTerminal}></FontAwesomeIcon>
-              </span>
-            </div>
-            <div className="home-profileCard-body flex-column flex-gap-10p p-10p animate__animated" id='terminal-body'>
-            {terminalLines.map((line, index) => (
-              <div key={index} className="home-profileCard-terminal-line">
-                <div className="flex-row flex-gap-10p align-center">
-                  <div className="text-color-red font-size-secondary">root@belanoe:</div>
-                  <div className="text-color-main font-size-main">~</div>
-                  <div className="text-color-main font-size-secondary">{line.command}</div>
-                </div>
-                {line.output && line.output.split('\n').map((outputLine, idx) => (
-                  <div key={idx} className="text-color-main font-size-secondary">
-                    {outputLine}
+              <div className="home-profileCard-body flex-column flex-gap-10p p-10p animate__animated" id='terminal-body'>
+              {terminalLines.map((line, index) => (
+                  <div key={index} className="home-profileCard-terminal-line">
+                    <div className="flex-row flex-gap-10p align-center">
+                      <div className="text-color-red font-size-secondary">root@belanoe:</div>
+                      <div className="text-color-main font-size-main">~</div>
+                      <div className="text-color-main font-size-secondary">{line.command}</div>
+                    </div>
+                    {line.output &&
+                      line.output.split('\n').map((outputLine, idx) => (
+                        <div key={idx} className="text-color-main font-size-secondary">
+                          {outputLine}
+                        </div>
+                      ))}
                   </div>
                 ))}
-              </div>
-            ))}
-            </div>
-            <div className="home-profileCard-body animate__animated d-none" id='profileCard-body'>
-              <div className="home-profileCard-left">
-                <div className="h1 p-35p max-w-500p min-w-200p">
-                  Hi, ich bin Béla <br /> und bin Softwareentwickler. Mit über 7 Jahren Erfahrung und Kenntnissen in mehr als 6 Sprachen, zeige ich dir hier meine Projekte.
-                </div>
-              </div>
 
-              <div className={`${window.innerWidth > 768 ? "visibility-hidden position-absolute " : ""}home-profileCard-right p-35p flex-column flex-gap-10p`}>
-                <div className="w-100 justify-center align-center flex-row">
+                {/* Command Input */}
+                <form onSubmit={handleCommandSubmit} className="flex-row align-center flex-gap-10p">
+                  <div className="text-color-red font-size-secondary">root@belanoe:</div>
+                  <div className="text-color-main font-size-main">~</div>
+                  <input
+                    type="text"
+                    value={currentCommand}
+                    onChange={(e) => setCurrentCommand(e.target.value)}
+                    autoFocus
+                    style={{
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      outline: 'none',
+                      color: 'var(--text-color-main)',
+                      width: '100%',
+                      fontSize: 'var(--font-size-secondary)',
+                      fontFamily:'"Inconsolata", sans-serif',
+                      padding:"0"
+                    }}
+                  />
+                </form>
+              </div>
+              
+            </div>
+
+        </div>}
+      {/* End of content for interactive site */}
+
+
+      {/* Content for static site */}
+        {siteType === "static" && 
+          <div className='home-flex-container z-index-1 w-100 align-center text-color-main'>
+            <div className="flex-column flex-gap-5p w-50-none-mobile">
+              <div id="text-1" className="font-size-huge animate__animated visibility-hidden">Béla Noé</div>
+              <div id='text-2' className="font-size-huge animate__animated visibility-hidden">Softwareentwickler</div>
+              <div id="text-3" className="font-size-huge animate__animated visibility-hidden">7 Jahre Erfahrung</div>
+            </div>
+
+            <div className="glass-card-grey static-profile-card flex-column  flex-gap-1rem home-profileCard-static">
+                <div className="w-100 flex-row justify-center">
                   <div className="circle w-100p h-100p flex-column justify-center align-center">
-                    <FontAwesomeIcon icon={faUser} size='2x' className="text-color-white"></FontAwesomeIcon>
+                      <FontAwesomeIcon icon={faUser} size='2x' className="text-color-white"></FontAwesomeIcon>
                   </div>
                 </div>
 
-                <div className="w-100 padding-t-20 justify-center align-center flex-row">
-                  <div className=" flex-column justify-center  flex-gap-1rem h3">
-                    <span>
-                      Name : Béla Noé
-                    </span>
-                    <span>
-                      Alter : {ageOfMe}
-                    </span>
-                    <span>
-                      Beruf : Softwareentwickler
-                    </span>
-                    <span>
-                      Sprachen : Englisch, Deutsch  
-                    </span>
-                    <span>
-                      Aktuellestes Projekt : <a href="https://elgio.de" target="_blank" rel="noopener noreferrer" className='text-color-blue no-text-decoration'>ELGIO</a> 
-                    </span>
-                    <span>
-                      Aktueller Techstack : 
-                      <div className="flex-row techstack-container">
+                <div className="h2 animate__animated animate__fadeInDown">Alter: {ageOfMe}</div>
+                <div className="h2 animate__animated animate__fadeInDown">Beruf: Softwareentwickler</div>
+                <div className="h2 animate__animated animate__fadeInDown">Sprachen: Deutsch, Englisch</div>
+                <div className="h2 animate__animated animate__fadeInDown">Aktuellstes Projekt: <a href="https://elgio.de" target="_blank" rel="noopener noreferrer" className='text-color-blue no-text-decoration'>ELGIO</a>  </div>
+                <span>
+                  <div className='h2 animate__animated animate__fadeInDown'>Aktueller Techstack :</div>
+                      <div className="flex-row techstack-container  animate__animated animate__fadeInDown">
                           { 
                           Object.keys(techStack).map((entry) => {
                             if(techStack[entry].svg){
@@ -298,15 +330,13 @@ function Home() {
                           })
                           }
                       </div>
-                    </span>
-                  </div>
-                </div>
-
-              </div>
+                </span>
+                <div className="h2"></div>
             </div>
           </div>
+        }
+      {/* End of content for static site */}
 
-      </div>
     </div>
   );
 }

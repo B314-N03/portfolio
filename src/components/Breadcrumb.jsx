@@ -11,10 +11,7 @@ function Breadcrumb({name="",subname=""}) {
     "Über mich": "/about",
     "Projekte": "/projects",
     "Kontakt": "/contact",
-    "Sonstiges": "/other",
-    "Nebenprojekte": "/other/side-projects",
-    "Lebenslauf": "/other/cv",
-    "Impressum": "/other/impressum",
+    "Impressum": "/impressum",
     "Login" : "/login"
   }
 
