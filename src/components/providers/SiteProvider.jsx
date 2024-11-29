@@ -7,7 +7,7 @@ export const SiteContext = createContext({
 });
 
 export default function SiteProvider(props) {
-    const [siteType, setSiteType] = useState('static');
+    const [siteType, setSiteType] = useState("static");
     useEffect(() => {
         
     },[siteType])

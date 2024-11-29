@@ -29,8 +29,8 @@ function GlassCard({color="",windowTitle="",windowIcon=null,bodyClassName="",chi
             <div className="card-title">{windowTitle}</div>
             <div className="card-icon">
                 {windowIcon !== null 
-                ? <FontAwesomeIcon icon={windowIcon}></FontAwesomeIcon>
-                : <FontAwesomeIcon icon={faEgg}></FontAwesomeIcon>
+                ? <FontAwesomeIcon icon={windowIcon} className='h3'></FontAwesomeIcon>
+                : <FontAwesomeIcon icon={faEgg} className='h3'></FontAwesomeIcon>
             }</div>
         </div>
         <div className="card-divider"></div>

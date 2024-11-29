@@ -7,6 +7,7 @@ import {  faChevronDown, faChevronLeft, faSun, faMoon,faFileArrowDown, faFileDow
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SiteContext } from './providers/SiteProvider'
 import cv from '../assets/pdf/lebenslauf_bela.pdf'
+import BackgroundImage from './widgets/Background_image'
 
 function Navbar({showLoginModal,setShowLoginModal}) {
   const [time, setTime] = useState(new Date().toLocaleTimeString())
@@ -143,8 +144,9 @@ function Navbar({showLoginModal,setShowLoginModal}) {
     }
   }
 
+
   return (
-    <nav className={`navbar`}>
+    <nav className={`navbar `}>
       <div className="navbar-parent firstItem">
       <div onClick={handleClickHamburger} id="menu-toggle" className="cursor-pointer menu-toggle navbar-hamburger-menu">
           <span className="menu-toggle-bar menu-toggle-bar--top"></span>
@@ -179,7 +181,7 @@ function Navbar({showLoginModal,setShowLoginModal}) {
           <div className="navbar-item navbar-time" data-no-animation>{today}</div>}
         </div>
       </div>
-      <div className="navbar-parent" data-navbar-list>
+      <div className={`navbar-parent ${theme === "dark" ? "bg-svg-dark" : "bg-svg-light"}`} data-navbar-list>
         <NavLink to='/' className="navbar-item" activeclassname='active' exact={"true"}>Home</NavLink>
         <NavLink to='/about' className="navbar-item" activeclassname='active'>Über mich</NavLink>
         <NavLink to='/projects' className="navbar-item" activeclassname='active'>Projekte</NavLink>

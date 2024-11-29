@@ -7,7 +7,7 @@ import './scss/about.scss'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGraduationCap, faPerson, faStar, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import { faFile, faFileText, faGraduationCap, faPerson, faPersonArrowDownToLine, faPersonMilitaryToPerson, faStar, faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from './providers/ThemeProvider'
 import { SiteContext } from './providers/SiteProvider'
 import BackgroundImage from './widgets/Background_image'
@@ -84,25 +84,25 @@ function About() {
            <div className="h4 ovalButton" onClick={() => document.getElementById("timeline").scrollIntoView({behavior: "smooth"})}>Zu den Beruflichen Erfahrungen</div>
         </div>
       </div>
-      <div className="w-100 about-fact-container align-center z-index-1">
-          <img src={Bela} id="bela" className="min-w-200p max-w-400p animate__animated visibility-hidden" alt="" />
-          <div className="flex-row flex-gap-2rem">
-            <div className="flex-column flex-gap-1rem">
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_0'>Name: Béla Noé</div>
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_1'>Alter: 21</div>
-              {/* <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_2'>Status: Online</div> */}
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_2'>Hauptprojekt: <a href="https://elgio.de" target="_blank" rel="noreferrer" className="no-text-decoration text-color-blue">ELGIO</a></div>
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_3'>Side-Project: LED Matrix, speziell das Fußball Display <NavLink to='/projects?open_demo=led-matrix' className="no-text-decoration text-color-blue">(siehe hier)</NavLink></div>
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_4'>Name: Béla Noé</div>
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_5'>Derzeitiger Beruf: Fullstack Entwickler (selbstständig @ELGIO)</div>
-            </div>
-
+      <GlassCard bodyClassName='w-100 about-fact-container align-center z-index-1' windowIcon={faPerson} windowTitle=''>
+        <img src={Bela} id="bela" className="min-w-200p max-w-400p animate__animated visibility-hidden" alt="Image_of_me" />
+        <div className="flex-row flex-gap-2rem">
+          <div className="flex-column flex-gap-1rem">
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_0'>Name: Béla Noé</div>
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_1'>Alter: 21</div>
+            {/* <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_2'>Status: Online</div> */}
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_2'>Hauptprojekt: <a href="https://elgio.de" target="_blank" rel="noreferrer" className="no-text-decoration text-color-blue">ELGIO</a></div>
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_3'>Side-Project: LED Matrix, speziell das Fußball Display <NavLink to='/projects?open_demo=led-matrix' className="no-text-decoration text-color-blue">(siehe hier)</NavLink></div>
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_4'>Name: Béla Noé</div>
+            <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_5'>Derzeitiger Beruf: Fullstack Entwickler (selbstständig @ELGIO)</div>
           </div>
-      </div>
+
+        </div>
+        </GlassCard>
 
       <div className="w-100 flex-gap-1rem about-container">
         <div className="h4 text-color-main min-w-150p above-1450-max-w-800p flex-column align-center">
-          <GlassCard color="grey" windowTitle="Über mich Text" windowIcon={faPerson}>
+          <GlassCard color="grey" windowTitle="Über mich Text" windowIcon={faFileText}>
             <p className='slide-in-left paragraph' ref={(el) => (paragraphRefs.current[0] = el)}>
               <b>Hi, ich bin Béla</b>, 21 Jahre alt und seit rund 7 Jahren begeisterter Entwickler und IT-Enthusiast.
               <br />Meine Reise in die IT begann früh durch meinen Vater, der ebenfalls in diesem Bereich tätig ist.

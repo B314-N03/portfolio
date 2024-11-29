@@ -9,7 +9,7 @@ function BackgroundImage() {
   return (
     siteType !== "static"
     ? 
-      <img src={kaliBg} alt="kali-bg"></img> 
+      <img src={kaliBg} alt="kali-bg" className='bg-svg-kali'></img> 
     :
       <div className={`${siteType === "static" ? theme === "dark" ? "bg-svg-dark" : "bg-svg-light" : "bg-svg-kali"}`}></div>
   )

@@ -795,7 +795,15 @@ video::-webkit-media-controls-enclosure {
     z-index: 0;
   }
   &kali{
-
+    height: 100% !important;
+    width: 100% !important;
+    background-size: auto !important;
+    background-position: center !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover;
+    z-index: 0;
   }
 }
 
@@ -1008,6 +1016,13 @@ video::-webkit-media-controls-enclosure {
     &100-{
       &2rem{
         width: calc(100% - 2rem) !important;
+      }
+    }
+  }
+  &h-{
+    &100-{
+      &50{
+        height: calc(100vh - 50px) !important;
       }
     }
   }

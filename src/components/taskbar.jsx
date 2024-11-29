@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
 import './scss/taskbar.scss'
 import kaliIcon from '../assets/images/kali-icon.svg'
-import { faCode, faContactBook, faDotCircle, faDownload, faHome, faPager, faPerson, faScaleBalanced, faSpaghettiMonsterFlying, faTextHeight } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faContactBook, faDotCircle, faDownload, faFileDownload, faHome, faPager, faPerson, faScaleBalanced, faSpaghettiMonsterFlying, faTextHeight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-
+import cv from "../assets/pdf/lebenslauf_bela.pdf"
 function Taskbar() {
   const [menuOpen,setMenuOpen] = useState(false)
   const menuIconRef = useRef(null)
@@ -49,8 +49,8 @@ const pages = [
     subpages: [
       {
         name: 'CV',
-        onClick: () => window.open('..', '_blank'),
-        icon: faDownload,
+        fileDownload: cv,
+        icon: faFileDownload,
       },
       {
         name: 'Impressum',
@@ -102,7 +102,14 @@ function TaskbarMenu({setMenuOpen,menuOpen,menuIconRef}) {
           <div className='w-25p'>{page.icon}</div>
           <p>{page.name}</p>
           <div className='taskbar-menu-item-subpages'>
-            {page.subpages.map((subpage) => (     
+            {page.subpages.map((subpage) => (
+              subpage.fileDownload ? 
+              <div className="flex-row flex-gap-1rem align_center taskbar-menu-item">
+                <FontAwesomeIcon icon={subpage.icon}></FontAwesomeIcon>
+                <a href={cv} download target='_blank' rel="noreferrer" className='no-text-decoration text-color-white'>Lebenslauf</a>
+              </div>
+              
+              :     
               <Link to={subpage.link} key={subpage.name} className='taskbar-menu-item no-text-decoration'>
                 {typeof(subpage.icon) !== "string" 
                   ? <FontAwesomeIcon icon={subpage.icon}></FontAwesomeIcon>

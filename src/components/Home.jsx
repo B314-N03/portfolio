@@ -207,7 +207,7 @@ const exec = async () => {
   },[])
 
   return (
-    <div className='content'>
+    <div className={`${siteType !== "static" ? "calc-h-100-50 " : ""}content`}>
       <BackgroundImage/>
       {/* Content for interactive site */}
         {siteType !== "static" && <Taskbar></Taskbar>}
