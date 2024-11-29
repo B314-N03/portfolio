@@ -7,7 +7,11 @@ function BackgroundImage() {
   const {theme} = useContext(ThemeContext);
   const {siteType} = useContext(SiteContext);
   return (
-    <img src={`${siteType === "static" ? "" : kaliBg}`} className={`${siteType === "static" ? theme === "dark" ? "bg-svg-dark" : "bg-svg-light" : "bg-svg-kali"}`}  alt={`${theme === "dark" ? "dark-svg-background" : "light-svg-background"}`}></img>
+    siteType !== "static"
+    ? 
+      <img src={kaliBg} alt="kali-bg"></img> 
+    :
+      <div className={`${siteType === "static" ? theme === "dark" ? "bg-svg-dark" : "bg-svg-light" : "bg-svg-kali"}`}></div>
   )
 }
 

@@ -17,6 +17,7 @@ import Taskbar from './taskbar';
 import kaliBg from "../assets/images/kali-bg.png"
 import { ThemeContext } from './providers/ThemeProvider';
 import { SiteContext } from './providers/SiteProvider';
+import BackgroundImage from './widgets/Background_image';
 
 function Home() {
   const [terminalLines, setTerminalLines] = useState([]);
@@ -207,8 +208,7 @@ const exec = async () => {
 
   return (
     <div className='content'>
-
-      <img src={`${siteType === "static" ? "" : kaliBg}`} className={`${siteType === "static" ? theme === "dark" ? "bg-svg-dark" : "bg-svg-light" : "bg-svg-kali"}`}  alt={`${theme === "dark" ? "dark-svg-background" : "light-svg-background"}`}></img>
+      <BackgroundImage/>
       {/* Content for interactive site */}
         {siteType !== "static" && <Taskbar></Taskbar>}
         {siteType !== "static" && <div>

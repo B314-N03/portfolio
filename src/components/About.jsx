@@ -94,7 +94,7 @@ function About() {
               <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_2'>Hauptprojekt: <a href="https://elgio.de" target="_blank" rel="noreferrer" className="no-text-decoration text-color-blue">ELGIO</a></div>
               <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_3'>Side-Project: LED Matrix, speziell das Fußball Display <NavLink to='/projects?open_demo=led-matrix' className="no-text-decoration text-color-blue">(siehe hier)</NavLink></div>
               <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_4'>Name: Béla Noé</div>
-              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_5'>Derzeitiger Beruf: Fullstack Entwickler @ELGIO</div>
+              <div className="h2 text-color-main animate__animated visibility-hidden" id='about_fact_5'>Derzeitiger Beruf: Fullstack Entwickler (selbstständig @ELGIO)</div>
             </div>
 
           </div>
@@ -189,10 +189,10 @@ function About() {
               dateClassName='text-color-blue h4 font-weight-bold'
               date='Ende 2021 - Jetzt'  
             >
-              <h3 className="vertical-timeline-element-title">Frontend Developer</h3>
+              <h3 className="vertical-timeline-element-title">Frontend/Fullstack Developer</h3>
               <h4 className="vertical-timeline-element-subtitle">Köln, ELGIO</h4>
               <p>
-                UI/UX, Frontend Developer, Backend Developer, App Developer
+                UI/UX, Frontend Developer, Fullstack, App Developer, API
               </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -207,7 +207,7 @@ function About() {
               <h3 className="vertical-timeline-element-title">Schüler</h3>
               <h4 className="vertical-timeline-element-subtitle">Bonn, Carl-von-Ossietzky Gymnasium</h4>
               <p>
-                Abitur mit den Leistungskursen: Englisch (C1) & Pädagogik
+                Abitur mit den Leistungskursen: <br />Englisch (C1) & Pädagogik
               </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement icon={<FontAwesomeIcon icon={faStar}/>} iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }} ></VerticalTimelineElement>

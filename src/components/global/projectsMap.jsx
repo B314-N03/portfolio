@@ -55,7 +55,7 @@ export  const projectsMap = [  {
   {
     name:"LED Matrix",
     description:"In meiner Wohnung hängt eine LED-Matrix. Diese zeigt unter anderem den Busfahrplan der umliegenden Stationen. Zusätzlich habe ich daran gearbeitet, ein Fußball-Display auf eben diesem zu realisieren. Alles weitere wird in der Demo erklärt.",
-    timeOfCreation: "Anfang 2022",
+    timeOfCreation: "2024",
     icon: faCode,
     color: "rgb(33, 150, 243)",
     techStack: ["Python","Docker","Bash","Nginx","Raspberry Pi"],
