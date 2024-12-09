@@ -80,9 +80,10 @@
     position: fixed;
     left: 50%;
     top: 50%;
+    color: var(--text-color-main);
     height: 70vh;
     width: 5vw;
-    transition: width .8s ease-in-out;
+    transition: width .6s ease-in-out;
     transform: translate(-50%,-50%);
     &-header{
         width: 100%;

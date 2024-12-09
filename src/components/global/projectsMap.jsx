@@ -82,7 +82,8 @@ export  const projectsMap = [  {
     type:"personal_project",
     showModalButton: true,
     modalOpen: false,
-    modalDisabled: true
+    modalDisabled: true,
+    modalComponent: <div className="h3">Portscanner-Demo Modal Content</div>
   },
   {
     name: "Notizen CLI App",

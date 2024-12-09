@@ -183,24 +183,34 @@ function Projects() {
   }
 
   const handleOpenModal = (index) => {
-    setProjects(projects.map((project, i) => {
+    const updatedProjectsMap = projectsMap.map((project, i) => {
       if(i === index){
         project.modalOpen = !project.modalOpen
       }
       return project
-    }))
+    })
     const demo_modal = document.getElementById(`demo-modal-${projects[index].name.toLowerCase().replace(" ","-")}`)
-    const demo_modal_content = document.getElementById(`demo-modal-content-${projects[index].name.toLowerCase().replace(" ","-")}`)
-    setTimeout(() => {
-      if(projects[index].modalOpen){
+    const demo_modal_content = document.getElementById(`demo-modal-content-wrapper-${projects[index].name.toLowerCase().replace(" ","-")}`)
+    if(updatedProjectsMap[index].modalOpen){
+      setTimeout(() => {
         demo_modal.classList.add("w-80vw")
         setTimeout(() => {
           demo_modal_content.classList.remove("visibility-hidden")
+          demo_modal_content.classList.remove("animate__fadeOut")
           demo_modal_content.classList.add("animate__fadeIn")
-        },500)
-      } 
-      else demo_modal.classList.remove("w-80vw")
-    }, 500)
+        },800)
+      }, 200)
+      setProjects(updatedProjectsMap)      
+    }
+    else {
+      demo_modal.classList.remove("w-80vw")
+      demo_modal_content.classList.add("visibility-hidden")
+      demo_modal_content.classList.remove("animate__fadeIn")
+      demo_modal_content.classList.add("animate__fadeOut")      
+      setTimeout(() => {
+        setProjects(updatedProjectsMap)
+      }, 1000)
+    }
   }
 
   return (
@@ -318,11 +328,13 @@ function Projects() {
               } 
               return (
                 <div id={`demo-modal-${project.name.toLowerCase().replace(" ","-")}`} className={`glass-card-grey project-modal${project.modalOpen ? ' visibility-visible' : ' visibility-hidden'}`} key={index}>
-                <div className="project-modal-header">
-                  <div className="h1">Demo-Modal: {project.name}</div>
-                  <FontAwesomeIcon icon={faX} className='cursor-pointer h3' onClick={() => handleOpenModal(index)}></FontAwesomeIcon>
-                </div>
-                {project.modalComponent}
+                <div id={`demo-modal-content-wrapper-${project.name.toLowerCase().replace(" ","-")}`} className="visibility-hidden animate__animated">
+                  <div className="project-modal-header">  
+                    <div className="h1">Demo-Modal: {project.name}</div>
+                    <FontAwesomeIcon icon={faX} className='cursor-pointer h3' onClick={() => handleOpenModal(index)}></FontAwesomeIcon>
+                  </div>
+                  {project.modalComponent}
+                  </div>
               </div>
               )
             })}
