@@ -1,0 +1,172 @@
+<mxfile host="65bd71144e">
+    <diagram id="wu7qQfmcsLOsUh6NHCrr" name="Page-1">
+        <mxGraphModel dx="4411" dy="1791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="48" value="" style="shape=flexArrow;endArrow=classic;html=1;fontSize=25;entryX=0.368;entryY=1.07;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="53">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-391" y="471" as="sourcePoint"/>
+                        <mxPoint x="-510" y="10" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=none;html=1;fontSize=21;fillColor=#000000;" parent="1" target="8" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1119" y="126" as="sourcePoint"/>
+                        <mxPoint x="-399" y="464" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-825.21" y="122.78"/>
+                            <mxPoint x="-610" y="120"/>
+                            <mxPoint x="-610" y="520"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="" style="shape=wire;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endArrow=none;curved=0;rounded=0;strokeColor=#6F0000;dashed=1;fillColor=#FFEEED;dashPattern=12 12;fixDash=1;startSize=6;endSize=6;fontSize=21;entryX=0.517;entryY=0.003;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8" target="7" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="-140" y="539.0999999999999" as="sourcePoint"/>
+                        <mxPoint x="26" y="700" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-120" y="519"/>
+                            <mxPoint x="-120" y="701"/>
+                            <mxPoint x="-376" y="701"/>
+                            <mxPoint x="-376" y="771"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" value="" style="endArrow=none;html=1;fontSize=21;fillColor=#000000;" parent="1" source="6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="274" y="56.48000000000002" as="sourcePoint"/>
+                        <mxPoint x="424" y="180" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="284" y="49"/>
+                            <mxPoint x="424" y="50"/>
+                            <mxPoint x="424" y="140"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/networking/Network_Interfaces.svg;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="-10" width="131" height="118.24" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#000000;shadow=0;dashed=0;shape=mxgraph.ios7.icons.monitor;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-670" y="770" width="597" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/networking/Network_Interfaces.svg;" parent="1" vertex="1">
+                    <mxGeometry x="-425" y="460" width="131" height="118.24" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Raspberry Pi Zero W&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-485" y="590" width="255" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;LED Matrix&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;2 32x64 chained together = 1x 32x128&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-670" y="1030" width="450" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="shape=wire;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endArrow=none;curved=0;rounded=0;strokeColor=#6F0000;dashed=1;fillColor=#FFFEFA;dashPattern=12 12;fixDash=1;startSize=6;endSize=6;fontSize=21;entryX=0.478;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8" target="7" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="16" y="570" as="sourcePoint"/>
+                        <mxPoint x="116" y="570" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-130" y="529"/>
+                            <mxPoint x="-130" y="690"/>
+                            <mxPoint x="-385" y="690"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="32px" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="840" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fontSize=21;fillColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-47" y="940" as="sourcePoint"/>
+                        <mxPoint x="-47" y="770" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fontSize=21;fillColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-670" y="966" as="sourcePoint"/>
+                        <mxPoint x="-70" y="966" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="128px" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-410" y="980" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Raspberry Pi 4" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="-50" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Running processes*:&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="294" y="238" width="250" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Running processes* :&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-1270" y="176" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;- Scraper Football Stats:&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Flask Port: 5000&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Language: Python&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Script running:&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Flask Server&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Selenium for web-scraping&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- automated club- logo download and hosting on &quot;/images&quot;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;- Scraper ELGIO Stats:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Flask Port: 5050&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Language: Python&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Script running:&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Flask Server&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Firbebase Db Querys for the stats&amp;nbsp;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 25px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="294" y="289.12" width="780" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Connection via &lt;br&gt;GPIO Pins&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-90" y="550" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.process;" parent="1" vertex="1">
+                    <mxGeometry x="389" y="176" width="51" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.process;" parent="1" vertex="1">
+                    <mxGeometry x="-1145.71" y="116.78" width="51" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;- Actual Script for displaying &lt;br&gt;&amp;nbsp; screens on the LED Matrix:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Flask Port : 5000&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Language: Python&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Normal Mode:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;-Automatic Switching of Screens in order:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;span style=&quot;&quot;&gt;&#9;&#9;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;-&amp;nbsp;BVB Stats (15s)&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;span style=&quot;&quot;&gt;&#9;&#9;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;-&amp;nbsp;Bus Information (30s)&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;span style=&quot;&quot;&gt;&#9;&#9;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- ELGIO Stats (20s)&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Available screens:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;-&amp;nbsp;BVB Stats&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- Bus information&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- ELGIO Stats&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- 3 Different .bmp animations&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- A Flask Server for controlling the current &lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&amp;nbsp; &lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp; screen &lt;/span&gt;via HTTP Request:&lt;br&gt;&lt;br&gt;- Fetch Bvb Stats from the rpi4 called every 5 secs:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;- writing the returned data to &lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;span style=&quot;&quot;&gt;&#9;&lt;/span&gt;&amp;nbsp; the local &quot;match-stats.json&quot;&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=21;" parent="1" vertex="1">
+                    <mxGeometry x="-1280" y="216" width="590" height="610" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;* All Processes are running as a daemon&lt;br&gt;and are therefore running the entire time&lt;br&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="504" y="1010" width="570" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;HTTP &quot;GET&quot; Request on URL &quot;&amp;lt;ip&amp;gt;:&amp;lt;port&amp;gt;/scrape&quot;&amp;nbsp;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-44.5;" vertex="1" parent="1">
+                    <mxGeometry x="-397" y="247" width="530" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="shape=flexArrow;endArrow=classic;html=1;startArrow=none;entryX=-0.022;entryY=0.958;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8" target="6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-73.84223999999995" y="240.12799999999993" as="sourcePoint"/>
+                        <mxPoint x="60" y="100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="" style="shape=flexArrow;endArrow=classic;html=1;fontSize=22;entryX=1.01;entryY=0.293;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.242;exitY=1.025;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="50" y="160" as="sourcePoint"/>
+                        <mxPoint x="290" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="HTTP Code 200, Data being returned" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;rotation=-45;" vertex="1" parent="1">
+                    <mxGeometry x="-260" y="300" width="390" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="" style="endArrow=none;html=1;fontSize=22;exitX=0.608;exitY=1.003;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="42" target="44">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="130" y="290" as="sourcePoint"/>
+                        <mxPoint x="50" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="This works for both: &lt;br&gt;football and elgio stats" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="-10" y="320" width="240" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="endArrow=none;html=1;fontSize=22;exitX=0.54;exitY=-0.046;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" target="46" source="36">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-329.9996739389492" y="98.22365081389583" as="sourcePoint"/>
+                        <mxPoint x="-259.01" y="133.78" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="This works for both: &lt;br&gt;football and elgio stats" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+                    <mxGeometry x="-317.01" y="116.78" width="237" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="" style="shape=flexArrow;endArrow=classic;html=1;fontSize=25;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="53">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-470" y="10" as="sourcePoint"/>
+                        <mxPoint x="-360" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="" style="image;html=1;image=img/lib/clip_art/telecommunication/Cellphone_128x128.png;labelBackgroundColor=#000000;fontSize=25;" vertex="1" parent="1">
+                    <mxGeometry x="-565" y="-160" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="HTTP &quot;POST&quot; on URL:&lt;br&gt;e.g. &quot;&amp;lt;ip&amp;gt;:5000/switch-display?display=&quot;stats&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=25;rotation=74.4;" vertex="1" parent="1">
+                    <mxGeometry x="-650" y="116.78" width="530" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="HTTP Code 200, Success:&lt;br&gt;e.g. then switching to given screen" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=25;rotation=74.4;" vertex="1" parent="1">
+                    <mxGeometry x="-720" y="172" width="410" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

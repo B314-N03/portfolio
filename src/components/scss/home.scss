@@ -118,12 +118,20 @@
 
 }
 
+.glass-card-home{
+    width: 50%;
+    @media screen and (min-width:1400px){
+        width: 30%;
+        margin-left: 20px;
+    }
+}
+
 .home-flex-container{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     @media screen and (min-width:1400px) {
-        flex-direction: row;
+        flex-direction: row;;
         height: 80vh;
     }
 }
