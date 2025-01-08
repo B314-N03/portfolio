@@ -22,5 +22,9 @@
         align-items: center;
         font-size: var(--font-size-main) !important;
         z-index: -1;
+        visibility: hidden;
+        @media screen and (min-width: 500px) {
+            visibility: visible;
+        }
     }
 }
