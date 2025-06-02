@@ -2,10 +2,55 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import bashSVG from "../../assets/images/gnu_bash-icon.svg"
 import { faFlutter, faPython } from "@fortawesome/free-brands-svg-icons";
 import LedMatrixDemo from "../project_demos/LedMatrixDemo";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-export const projectsMap =  [  {
+interface Project {
+  name: string;
+  description: string;
+  timeOfCreation: string;
+  icon: IconProp | string;
+  color: string;
+  textColor?: string;
+  dateColor?: string;
+  techStack: string[];
+  techStackTooltipText?: Record<string, string>;
+  link?: string;
+  linkText?: string;
+  repoLink?: string;
+  tags: string[];
+  type: string;
+  modalComponent?: React.ReactNode;
+  showModalButton?: boolean;
+  modalOpen?: boolean;
+  modalDisabled?: boolean;
+}
+
+export const projectsMap: Project[]  =  [  
+  {
+    name: "Habit Line",
+    description: "Mein aktuellstes Fullstack Projekt. Es ist ein Habit Tracker und soll im MVP ein AI Feature beinhalten, welches auf die hinzugefügten Tasks antworten/ Fragen stellen kann. Damit hat man eine direkte Kontrollinstanz.",
+    timeOfCreation: "Mai 2025",
+    icon: faCode,
+    color: "#FE5F55",
+    techStack: [
+      "Java Springboot",
+      "PostgreSQL 17",
+      "React",
+      "Sass",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Git",
+    ],
+    link:"https://github.com/B314-N03/HabitLine/",
+    linkText:"zum Repository",
+    repoLink:"https://github.com/B314-N03/HabitLine/",
+    tags: ["Habit Tracker", "React", "Node.js", "Firebase", "Sass", "HTML", "CSS", "JavaScript", "Git"],
+    type:"personal_project"
+  },
+  {
     name: "Portfolio Website",
-    description: "Mein aktuellstes Projekt. Hier kann ich das was ich in den letzten Jahren gelernt habe anwenden.\nAußerdem probiere ich mich hier auch mit neuen Dingen wie Three.js und Animationen aus.",
+    description: "Meine eigene Porfolio Website. Hier kann ich das was ich in den letzten Jahren gelernt habe anwenden.\nAußerdem probiere ich mich hier auch mit neuen Dingen wie Three.js und Animationen aus.",
     timeOfCreation: "September 2024",
     icon: faCode,
     color: "#FE5F55",
@@ -17,7 +62,7 @@ export const projectsMap =  [  {
       "HTML",
       "CSS",
       "JavaScript",
-      ".Git",
+      "Git",
       ".Three.js"
     ],
     techStackTooltipText: {"Three.js": "Das ist noch in Arbeit. Ich arbeite aktuell an einem interaktivem 3D Modell meines Zimmers"},
